@@ -48,6 +48,7 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblTipo = new System.Windows.Forms.Label();
             this.cmbTipos = new System.Windows.Forms.ComboBox();
+            this.btnDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).BeginInit();
             this.grbFiltros.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +59,7 @@
             this.grdArticulos.Location = new System.Drawing.Point(15, 202);
             this.grdArticulos.Name = "grdArticulos";
             this.grdArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdArticulos.Size = new System.Drawing.Size(477, 259);
+            this.grdArticulos.Size = new System.Drawing.Size(559, 259);
             this.grdArticulos.TabIndex = 23;
             this.grdArticulos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdArticulos_CellMouseClick);
             // 
@@ -128,7 +129,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(416, 467);
+            this.btnSalir.Location = new System.Drawing.Point(499, 467);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 9;
@@ -192,7 +193,7 @@
             this.grbFiltros.Controls.Add(this.btnFiltrar);
             this.grbFiltros.Controls.Add(this.lblTipo);
             this.grbFiltros.Controls.Add(this.cmbTipos);
-            this.grbFiltros.Location = new System.Drawing.Point(257, 9);
+            this.grbFiltros.Location = new System.Drawing.Point(337, 12);
             this.grbFiltros.Name = "grbFiltros";
             this.grbFiltros.Size = new System.Drawing.Size(234, 175);
             this.grbFiltros.TabIndex = 24;
@@ -236,11 +237,22 @@
             this.cmbTipos.Size = new System.Drawing.Size(121, 21);
             this.cmbTipos.TabIndex = 0;
             // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Enabled = false;
+            this.btnDetalle.Location = new System.Drawing.Point(418, 467);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.TabIndex = 9;
+            this.btnDetalle.Text = "Detalles";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 500);
+            this.ClientSize = new System.Drawing.Size(594, 500);
             this.Controls.Add(this.grbFiltros);
             this.Controls.Add(this.grdArticulos);
             this.Controls.Add(this.txtPrecio);
@@ -251,6 +263,7 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblId);
+            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -290,5 +303,6 @@
         private System.Windows.Forms.ComboBox cmbTipos;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }

@@ -30,6 +30,12 @@ namespace SistemaHotelPAV.Clases
             set { nombre = value; }
         }
 
+        internal DataRow recuperarArticuloCompletoPorID(int idArticulo) {
+            return objDatos.consultar("SELECT id_art, a.nombre, descripcion, precioUnitario, t.nombre " +
+                "FROM Articulos a JOIN Tipos t on a.id_tipo=t.id_tipo " +
+                "WHERE id_art=" + idArticulo).Rows[0];
+        }
+
         public string DESCRIPCION
         {
             get { return descripcion; }

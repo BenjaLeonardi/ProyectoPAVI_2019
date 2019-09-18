@@ -173,5 +173,17 @@ namespace SistemaHotelPAV.Formularios
             grdArticulos.DataSource = tabla3;
             cmbTipos.SelectedValue = -1;
         }
+
+        private void grdArticulos_CellClick(object sender, DataGridViewCellEventArgs e) {
+            this.btnDetalle.Enabled = true;
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e) {
+            if (grdArticulos.CurrentRow != null) {
+                frmDetalleArticulo frmDetalle = new frmDetalleArticulo();
+                frmDetalle.InitDetalle((int)grdArticulos.CurrentRow.Cells[0].Value);
+                frmDetalle.ShowDialog();
+            }
+        }
     }
 }

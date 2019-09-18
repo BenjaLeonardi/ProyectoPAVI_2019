@@ -44,7 +44,8 @@ namespace SistemaHotelPAV.Clases
 
         public DataTable recuperarArticulos()
         {
-            return objDatos.consultarTabla("Articulos");
+            return objDatos.consultar("SELECT id_art, a.nombre, descripcion, precioUnitario, t.nombre" +
+                " FROM Articulos a JOIN Tipos t on a.id_tipo=t.id_tipo");
         }
 
         public bool validarDatosArticulos()

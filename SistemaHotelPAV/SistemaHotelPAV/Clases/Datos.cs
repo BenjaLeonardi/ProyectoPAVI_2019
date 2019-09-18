@@ -12,7 +12,8 @@ namespace SistemaHotelPAV.Clases
     {
         private OleDbConnection conexion = new OleDbConnection();
         private OleDbCommand comando = new OleDbCommand();
-        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=DESKTOP-2L8MG4Q\SQLEXPRESS;Persist Security Info=True;Integrated Security=SSPI;Initial Catalog=HotelGrandario";
+        //private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=DESKTOP-2L8MG4Q\SQLEXPRESS;Persist Security Info=True;Integrated Security=SSPI;Initial Catalog=HotelGrandario";
+        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=DESKTOP-JOO5NDB\SQLEXPRESS;Persist Security Info=True;Integrated Security=SSPI;Initial Catalog=HotelGrandario";
         //private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=maquis;Persist Security Info=True;Password=avisuales1;User ID=avisuales1;Initial Catalog=TestLeonardi";
 
         private void conectar()

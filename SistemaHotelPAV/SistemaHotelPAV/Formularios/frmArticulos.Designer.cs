@@ -61,6 +61,7 @@
             this.grdArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdArticulos.Size = new System.Drawing.Size(559, 259);
             this.grdArticulos.TabIndex = 23;
+            this.grdArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdArticulos_CellClick);
             this.grdArticulos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdArticulos_CellMouseClick);
             // 
             // txtPrecio

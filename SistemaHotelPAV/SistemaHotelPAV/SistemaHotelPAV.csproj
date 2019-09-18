@@ -46,8 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Datos.cs" />
+    <Compile Include="DataAccessLayer\Datos.cs" />
     <Compile Include="Clases\Articulos.cs" />
+    <Compile Include="Formularios\frmDetalleArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmDetalleArticulo.Designer.cs">
+      <DependentUpon>frmDetalleArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\frmArticulos.resx">
       <DependentUpon>frmArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmDetalleArticulo.resx">
+      <DependentUpon>frmDetalleArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

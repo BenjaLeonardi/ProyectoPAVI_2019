@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SistemaHotelPAV.Clases;
+using SistemaHotelPAV.Entities;
+using SistemaHotelPAV.DataAccessLayer;
 
 namespace SistemaHotelPAV.Formularios {
     public partial class frmDetalleArticulo : Form {
 
-        private Articulos articuloService;
+        private ArticuloDA articuloDA;
         public frmDetalleArticulo() {
             InitializeComponent();
 
-            articuloService = new Articulos();
+            articuloDA = new ArticuloDA();
         }
 
         internal void InitDetalle(int idArticulo) {
-            DataRow fila = articuloService.recuperarArticuloCompletoPorID(idArticulo);
+            DataRow fila = articuloDA.recuperarArticuloCompletoPorID(idArticulo);
 
             txtId.Text = fila["id_art"].ToString();
             txtNombre.Text = fila["nombre"].ToString();

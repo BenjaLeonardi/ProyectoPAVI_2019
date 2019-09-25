@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SistemaHotelPAV.Clases;
+using SistemaHotelPAV.Entities;
+using SistemaHotelPAV.DataAccessLayer;
 
 namespace SistemaHotelPAV.Formularios
 {
     public partial class frmArticulos : Form
     {
 
-        Articulos objArt = new Articulos();
+        Articulo objArt = new Articulo();
         Datos objDatos = new Datos();
         private bool flagNuevo = false;
+        ArticuloDA articuloDA;
 
         public frmArticulos()
         {
             InitializeComponent();
+            articuloDA = new ArticuloDA();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -54,7 +51,7 @@ namespace SistemaHotelPAV.Formularios
 
         private void frmArticulos_Load(object sender, EventArgs e)
         {
-            this.grdArticulos.DataSource = objArt.recuperarArticulos();
+            this.grdArticulos.DataSource = articuloDA.recuperarArticulos();
 
             grdArticulos.Columns[0].HeaderText = "ID";
             grdArticulos.Columns[1].HeaderText = "Nombre";
@@ -84,7 +81,7 @@ namespace SistemaHotelPAV.Formularios
         private void actualizarCampos(int id)
         {
             DataTable tabla = new DataTable();
-            tabla = objArt.recuperarArticuloID(id);
+            tabla = articuloDA.recuperarArticuloID(id);
             txtId.Text = tabla.Rows[0]["id_art"].ToString();
             txtNombre.Text = tabla.Rows[0]["nombre"].ToString(); 
             txtDescripcion.Text = tabla.Rows[0]["descripcion"].ToString();
@@ -118,21 +115,21 @@ namespace SistemaHotelPAV.Formularios
             objArt.DESCRIPCION = txtDescripcion.Text;
             objArt.PRECIOUNITARIO = Convert.ToInt32(txtPrecio.Text);
 
-            if (objArt.validarDatosArticulos())
+            if (articuloDA.validarDatosArticulo(objArt))
             {
                 if (this.flagNuevo == true)
                 {
-                    objArt.guardarArticulo();
+                    articuloDA.guardarArticulo(objArt);
                     this.flagNuevo = false; //Flag para saber si grabamos una actualizacion o insercion
                 }
                 else
                 {
-                    objArt.modificarArticulo();
+                    articuloDA.modificarArticulo(objArt);
                 }
             }
 
             MessageBox.Show("El articulo se guardo con exito!", "Guardado exitoso");
-            this.grdArticulos.DataSource = objArt.recuperarArticulos(); //Recargo la grilla despues de guardar
+            this.grdArticulos.DataSource = articuloDA.recuperarArticulos(); //Recargo la grilla despues de guardar
             this.limpiar();
             this.habilitar(false);
         }
@@ -148,8 +145,8 @@ namespace SistemaHotelPAV.Formularios
             if ((MessageBox.Show("Esta seguro que desea borrar este registro?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2)) == System.Windows.Forms.DialogResult.Yes)
             {
 
-                objArt.eliminarArticulo();
-                this.grdArticulos.DataSource = objArt.recuperarArticulos(); //Actualizo tabla despues de eliminar el registro
+                articuloDA.eliminarArticulo(objArt);
+                this.grdArticulos.DataSource = articuloDA.recuperarArticulos(); //Actualizo tabla despues de eliminar el registro
 
                 MessageBox.Show("El registro fue borrado", "ELIMINACION EXITOSA");
             }
@@ -169,7 +166,7 @@ namespace SistemaHotelPAV.Formularios
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             DataTable tabla3 = new DataTable();
-            tabla3 = objArt.recuperarArticulos();
+            tabla3 = articuloDA.recuperarArticulos();
             grdArticulos.DataSource = tabla3;
             cmbTipos.SelectedValue = -1;
         }

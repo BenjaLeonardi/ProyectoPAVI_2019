@@ -46,54 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Datos.cs" />
-    <Compile Include="Clases\Articulos.cs" />
+    <Compile Include="Clases\Articulo.cs" />
     <Compile Include="Clases\Usuarios.cs" />
-    <Compile Include="Formularios\frmDetalleArticulo.cs">
+    <Compile Include="DataAccessLayer\ArticuloDA.cs" />
+    <Compile Include="DataAccessLayer\Datos.cs" />
+    <Compile Include="GUI\Articulos\frmDetalleArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmDetalleArticulo.Designer.cs">
+    <Compile Include="GUI\Articulos\frmDetalleArticulo.Designer.cs">
       <DependentUpon>frmDetalleArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmLogin.cs">
+    <Compile Include="GUI\Usuarios\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmLogin.Designer.cs">
+    <Compile Include="GUI\Usuarios\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Program.cs" />
-    <Compile Include="Formularios\frmMenuPrincipal.cs">
+    <Compile Include="GUI\frmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmMenuPrincipal.Designer.cs">
+    <Compile Include="GUI\frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmArticulos.cs">
+    <Compile Include="GUI\Articulos\frmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmArticulos.Designer.cs">
+    <Compile Include="GUI\Articulos\frmArticulos.Designer.cs">
       <DependentUpon>frmArticulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmUsuarios.cs">
+    <Compile Include="GUI\Usuarios\frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmUsuarios.Designer.cs">
+    <Compile Include="GUI\Usuarios\frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Formularios\frmArticulos.resx">
+    <EmbeddedResource Include="GUI\Articulos\frmArticulos.resx">
       <DependentUpon>frmArticulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmDetalleArticulo.resx">
+    <EmbeddedResource Include="GUI\Articulos\frmDetalleArticulo.resx">
       <DependentUpon>frmDetalleArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmLogin.resx">
+    <EmbeddedResource Include="GUI\Usuarios\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmMenuPrincipal.resx">
+    <EmbeddedResource Include="GUI\frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmUsuarios.resx">
+    <EmbeddedResource Include="GUI\Usuarios\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

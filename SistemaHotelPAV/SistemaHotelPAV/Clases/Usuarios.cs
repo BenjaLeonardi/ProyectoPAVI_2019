@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
-namespace SistemaHotelPAV.Clases
+namespace SistemaHotelPAV.Entities
 {
     public class Usuarios
     {

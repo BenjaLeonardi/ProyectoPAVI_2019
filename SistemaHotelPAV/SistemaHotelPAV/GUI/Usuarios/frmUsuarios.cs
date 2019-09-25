@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.OleDb;
-using SistemaHotelPAV.Clases;
+using SistemaHotelPAV.Entities;
 
 namespace SistemaHotelPAV.Formularios
 {

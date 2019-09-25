@@ -50,6 +50,7 @@
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="DataAccessLayer\ArticuloDA.cs" />
     <Compile Include="DataAccessLayer\Datos.cs" />
+    <Compile Include="DataAccessLayer\UsuarioDA.cs" />
     <Compile Include="GUI\Articulos\frmDetalleArticulo.cs">
       <SubType>Form</SubType>
     </Compile>

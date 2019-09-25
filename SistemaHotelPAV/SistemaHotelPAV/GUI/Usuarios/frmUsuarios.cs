@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.OleDb;
 using SistemaHotelPAV.Entities;
+using SistemaHotelPAV.DataAccessLayer;
 
 namespace SistemaHotelPAV.Formularios
 {
@@ -17,17 +17,20 @@ namespace SistemaHotelPAV.Formularios
     {
 
         Usuarios objUsu = new Usuarios();
-        Datos objDatos = new Datos();
+        Datos objDatos;
+        UsuarioDA usuarioDA;
         private bool flagNuevo;
 
         public frmUsuarios()
         {
             InitializeComponent();
+            objDatos = new Datos();
+            usuarioDA = new UsuarioDA();
         }
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
-            this.dgvUsuarios.DataSource = objUsu.recuperarUsuarios(); //El recuperar usuarios ya tiene incluido el join por ende carga el nombre del barrio automaticamente
+            this.dgvUsuarios.DataSource = usuarioDA.recuperarUsuarios(); //El recuperar usuarios ya tiene incluido el join por ende carga el nombre del barrio automaticamente
 
             dgvUsuarios.Columns[0].HeaderText = "ID Usuario";
             dgvUsuarios.Columns[1].HeaderText = "Usuario";
@@ -58,7 +61,7 @@ namespace SistemaHotelPAV.Formularios
         private void actualizarCampos(int id)
         {
             DataTable tabla = new DataTable();
-            tabla = objUsu.recuperarUsuarioID(id);
+            tabla = usuarioDA.recuperarUsuarioID(id);
             txtId_Usu.Text = tabla.Rows[0]["id_usu"].ToString();
             txtUsuario.Text = tabla.Rows[0]["usuario"].ToString();
             txtPassword.Text = tabla.Rows[0]["password"].ToString();
@@ -141,8 +144,8 @@ namespace SistemaHotelPAV.Formularios
             if ((MessageBox.Show("Esta seguro que desea borrar este registro?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2)) == System.Windows.Forms.DialogResult.Yes)
             {
 
-                objUsu.eliminarUsuario();
-                this.dgvUsuarios.DataSource = objUsu.recuperarUsuarios(); //Actualizo tabla despues de eliminar el registro
+                usuarioDA.eliminarUsuario(objUsu);
+                this.dgvUsuarios.DataSource = usuarioDA.recuperarUsuarios(); //Actualizo tabla despues de eliminar el registro
 
                 MessageBox.Show("El registro fue borrado", "ELIMINACION EXITOSA");
             }
@@ -161,21 +164,21 @@ namespace SistemaHotelPAV.Formularios
             objUsu.NroCalle = Convert.ToInt32(txtNroCalle.Text);
             objUsu.Id_barrio = Convert.ToInt32(cmbBarrio.SelectedValue);
 
-            if (objUsu.validarDatosUsuarios())
+            if (usuarioDA.validarDatosUsuarios(objUsu))
             {
                 if (this.flagNuevo == true)
                 {
-                    objUsu.guardarUsuario();
+                    usuarioDA.guardarUsuario(objUsu);
                     this.flagNuevo = false; //Flag para saber si grabamos una actualizacion o insercion
                 }
                 else
                 {
-                    objUsu.editarUsuario();
+                    usuarioDA.editarUsuario(objUsu);
                 }
             }
 
             MessageBox.Show("El usuario se guardo con exito!", "Guardado exitoso");
-            this.dgvUsuarios.DataSource = objUsu.recuperarUsuarios(); //Recargo la grilla despues de guardar
+            this.dgvUsuarios.DataSource = usuarioDA.recuperarUsuarios(); //Recargo la grilla despues de guardar
             this.limpiar();
             this.habilitar(false);
         }

@@ -52,5 +52,11 @@ namespace SistemaHotelPAV.Formularios
         {
             Application.Exit();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmUsuarios FormUsu = new frmUsuarios();
+            FormUsu.ShowDialog();
+        }
     }
 }

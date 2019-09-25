@@ -148,7 +148,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblId);
             this.Name = "frmDetalleArticulo";
-            this.Text = "Detalles Articulo";
+            this.Text = "Detalle Articulo";
             this.ResumeLayout(false);
             this.PerformLayout();
 

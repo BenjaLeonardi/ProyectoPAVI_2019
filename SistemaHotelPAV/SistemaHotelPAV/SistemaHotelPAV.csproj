@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccessLayer\Datos.cs" />
+    <Compile Include="Clases\Datos.cs" />
     <Compile Include="Clases\Articulos.cs" />
+    <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Formularios\frmDetalleArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +74,12 @@
     <Compile Include="Formularios\frmArticulos.Designer.cs">
       <DependentUpon>frmArticulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\frmArticulos.resx">
       <DependentUpon>frmArticulos.cs</DependentUpon>
@@ -85,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

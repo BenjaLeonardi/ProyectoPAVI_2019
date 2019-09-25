@@ -55,13 +55,14 @@
             // 
             // grdArticulos
             // 
+            this.grdArticulos.AllowUserToAddRows = false;
+            this.grdArticulos.AllowUserToDeleteRows = false;
             this.grdArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdArticulos.Location = new System.Drawing.Point(15, 202);
             this.grdArticulos.Name = "grdArticulos";
             this.grdArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdArticulos.Size = new System.Drawing.Size(559, 259);
             this.grdArticulos.TabIndex = 23;
-            this.grdArticulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdArticulos_CellClick);
             this.grdArticulos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdArticulos_CellMouseClick);
             // 
             // txtPrecio
@@ -240,7 +241,6 @@
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Enabled = false;
             this.btnDetalle.Location = new System.Drawing.Point(418, 467);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);

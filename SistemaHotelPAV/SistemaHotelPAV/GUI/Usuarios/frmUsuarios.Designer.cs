@@ -110,7 +110,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 163);
+            this.label4.Location = new System.Drawing.Point(333, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 0;
@@ -118,15 +118,15 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(12, 179);
+            this.txtApellido.Location = new System.Drawing.Point(333, 73);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtApellido.TabIndex = 3;
+            this.txtApellido.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(175, 9);
+            this.label5.Location = new System.Drawing.Point(175, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 0;
@@ -134,7 +134,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(175, 25);
+            this.txtNombre.Location = new System.Drawing.Point(175, 73);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 4;
@@ -142,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(175, 57);
+            this.label6.Location = new System.Drawing.Point(175, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 0;
@@ -150,10 +150,10 @@
             // 
             // txtNroDni
             // 
-            this.txtNroDni.Location = new System.Drawing.Point(175, 73);
+            this.txtNroDni.Location = new System.Drawing.Point(175, 25);
             this.txtNroDni.Name = "txtNroDni";
             this.txtNroDni.Size = new System.Drawing.Size(100, 20);
-            this.txtNroDni.TabIndex = 5;
+            this.txtNroDni.TabIndex = 3;
             // 
             // label7
             // 
@@ -167,7 +167,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(175, 163);
+            this.label8.Location = new System.Drawing.Point(12, 162);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 13);
             this.label8.TabIndex = 0;
@@ -175,7 +175,7 @@
             // 
             // txtCalle
             // 
-            this.txtCalle.Location = new System.Drawing.Point(175, 179);
+            this.txtCalle.Location = new System.Drawing.Point(12, 178);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(100, 20);
             this.txtCalle.TabIndex = 7;
@@ -183,7 +183,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(333, 57);
+            this.label9.Location = new System.Drawing.Point(333, 161);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 0;
@@ -192,9 +192,9 @@
             // cmbBarrio
             // 
             this.cmbBarrio.FormattingEnabled = true;
-            this.cmbBarrio.Location = new System.Drawing.Point(333, 73);
+            this.cmbBarrio.Location = new System.Drawing.Point(333, 177);
             this.cmbBarrio.Name = "cmbBarrio";
-            this.cmbBarrio.Size = new System.Drawing.Size(121, 21);
+            this.cmbBarrio.Size = new System.Drawing.Size(100, 21);
             this.cmbBarrio.TabIndex = 9;
             // 
             // dgvUsuarios
@@ -206,7 +206,7 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(567, 312);
-            this.dgvUsuarios.TabIndex = 3;
+            this.dgvUsuarios.TabIndex = 17;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             this.dgvUsuarios.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsuarios_CellMouseClick);
             // 
@@ -283,7 +283,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(333, 9);
+            this.label1.Location = new System.Drawing.Point(175, 162);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 0;
@@ -291,7 +291,7 @@
             // 
             // txtNroCalle
             // 
-            this.txtNroCalle.Location = new System.Drawing.Point(333, 25);
+            this.txtNroCalle.Location = new System.Drawing.Point(175, 178);
             this.txtNroCalle.Name = "txtNroCalle";
             this.txtNroCalle.Size = new System.Drawing.Size(100, 20);
             this.txtNroCalle.TabIndex = 8;
@@ -300,8 +300,8 @@
             // 
             this.txtFechaNac.Location = new System.Drawing.Point(175, 125);
             this.txtFechaNac.Name = "txtFechaNac";
-            this.txtFechaNac.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaNac.TabIndex = 17;
+            this.txtFechaNac.Size = new System.Drawing.Size(258, 20);
+            this.txtFechaNac.TabIndex = 6;
             this.txtFechaNac.Value = new System.DateTime(2019, 9, 25, 8, 49, 44, 0);
             this.txtFechaNac.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 

@@ -169,13 +169,13 @@ namespace SistemaHotelPAV.Entities
             SqlInsert = @"INSERT INTO Usuarios (id_usu, usuario, password, apellido, nombre, nroDni, fechaNac, calle, nroCalle, id_barrio) VALUES ('" +
                 this.id_usu + "','" +
                 this.usuario + "','" +
-                this.password + "'," +
-                this.apellido + "'," +
-                this.nombre + "'," +
-                this.nroDni + "'," +
-                this.fechaNac.ToShortDateString() + "'," +
-                this.calle + "'," +
-                this.nroCalle + "'," +
+                this.password + "', '" +
+                this.apellido + "', '" +
+                this.nombre + "', " +
+                this.nroDni + ", '" +
+                this.fechaNac.ToShortDateString() + "', '" +
+                this.calle + "', " +
+                this.nroCalle + ", " +
                 this.id_barrio + ")";
 
             objDatos.actualizar(SqlInsert);

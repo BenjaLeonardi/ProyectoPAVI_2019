@@ -40,10 +40,11 @@ namespace SistemaHotelPAV.Formularios
             dgvUsuarios.Columns[8].HeaderText = "Nro Calle";
             dgvUsuarios.Columns[9].HeaderText = "Barrio";
 
-
             DataTable tabla = new DataTable();
             tabla = objDatos.consultarTabla("Barrios"); //Aca cargo los barrios al combo cuando empieza todo
+
             LlenarCombo(cmbBarrio, tabla, "nombre", "id_barrio");
+            habilitar(false);
         }
 
         private void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value)
@@ -155,9 +156,9 @@ namespace SistemaHotelPAV.Formularios
             objUsu.Apellido = txtApellido.Text;
             objUsu.Nombre = txtNombre.Text;
             objUsu.NroDni = txtNroDni.Text;
-            objUsu.FechaNac = Convert.ToDateTime(txtFechaNac.Text);
+            objUsu.FechaNac = txtFechaNac.Value;
             objUsu.Calle = txtCalle.Text;
-            objUsu.NroCalle = Convert.ToInt32(txtCalle.Text);
+            objUsu.NroCalle = Convert.ToInt32(txtNroCalle.Text);
             objUsu.Id_barrio = Convert.ToInt32(cmbBarrio.SelectedValue);
 
             if (objUsu.validarDatosUsuarios())
@@ -177,6 +178,16 @@ namespace SistemaHotelPAV.Formularios
             this.dgvUsuarios.DataSource = objUsu.recuperarUsuarios(); //Recargo la grilla despues de guardar
             this.limpiar();
             this.habilitar(false);
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

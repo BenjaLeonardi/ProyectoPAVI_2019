@@ -154,7 +154,7 @@ namespace SistemaHotelPAV.Entities
                                             "apellido='" + this.apellido + "'," +
                                             "nombre='" + this.nombre + "'," +
                                             "nroDni='" + this.nroDni + "'," +
-                                            "fechaNac='" + this.fechaNac + "'," +
+                                            "fechaNac='" + this.fechaNac.ToShortDateString() + "'," +
                                             "calle='" + this.calle + "'," +
                                             "nroCalle='" + this.nroCalle + "'," +
                                             "id_barrio=" + this.id_barrio +
@@ -173,7 +173,7 @@ namespace SistemaHotelPAV.Entities
                 this.apellido + "'," +
                 this.nombre + "'," +
                 this.nroDni + "'," +
-                this.fechaNac + "'," +
+                this.fechaNac.ToShortDateString() + "'," +
                 this.calle + "'," +
                 this.nroCalle + "'," +
                 this.id_barrio + ")";

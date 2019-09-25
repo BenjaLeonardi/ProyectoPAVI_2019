@@ -41,7 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtNroDni = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtFechaNac = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCalle = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNroCalle = new System.Windows.Forms.TextBox();
+            this.txtFechaNac = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,13 +164,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Fecha Nacimiento";
             // 
-            // txtFechaNac
-            // 
-            this.txtFechaNac.Location = new System.Drawing.Point(175, 125);
-            this.txtFechaNac.Name = "txtFechaNac";
-            this.txtFechaNac.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaNac.TabIndex = 6;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -211,8 +204,10 @@
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Location = new System.Drawing.Point(12, 216);
             this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(567, 312);
             this.dgvUsuarios.TabIndex = 3;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             this.dgvUsuarios.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsuarios_CellMouseClick);
             // 
             // btnNuevo
@@ -301,11 +296,21 @@
             this.txtNroCalle.Size = new System.Drawing.Size(100, 20);
             this.txtNroCalle.TabIndex = 8;
             // 
+            // txtFechaNac
+            // 
+            this.txtFechaNac.Location = new System.Drawing.Point(175, 125);
+            this.txtFechaNac.Name = "txtFechaNac";
+            this.txtFechaNac.Size = new System.Drawing.Size(100, 20);
+            this.txtFechaNac.TabIndex = 17;
+            this.txtFechaNac.Value = new System.DateTime(2019, 9, 25, 8, 49, 44, 0);
+            this.txtFechaNac.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 578);
+            this.Controls.Add(this.txtFechaNac);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnDetalles);
             this.Controls.Add(this.btnCancelar);
@@ -319,7 +324,6 @@
             this.Controls.Add(this.txtCalle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtFechaNac);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtNroDni);
             this.Controls.Add(this.label6);
@@ -358,7 +362,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNroDni;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtFechaNac;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtCalle;
         private System.Windows.Forms.Label label9;
@@ -373,5 +376,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNroCalle;
+        private System.Windows.Forms.DateTimePicker txtFechaNac;
     }
 }

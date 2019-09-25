@@ -68,6 +68,8 @@ namespace SistemaHotelPAV.Formularios
             DataTable tabla = new DataTable();
             tabla = objDatos.consultarTabla("Tipos");
             LlenarCombo(cmbTipos, tabla, "nombre", "id_tipo");
+
+            habilitar(false);
         }
 
         private void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value)

@@ -40,7 +40,6 @@ namespace SistemaHotelPAV.DataAccessLayer {
             string sqlDelete = "";
             sqlDelete = "DELETE FROM Articulos WHERE id_art=" + articulo.ID_ART;
             objDatos.actualizar(sqlDelete);
-
         }
 
         public void modificarArticulo(Articulo articulo) {

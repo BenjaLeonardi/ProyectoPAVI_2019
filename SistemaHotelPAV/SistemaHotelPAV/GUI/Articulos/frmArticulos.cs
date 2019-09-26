@@ -26,18 +26,39 @@ namespace SistemaHotelPAV.Formularios
         }
 
 
-        private void habilitar(bool x) //x siendo el booleano que entra por la funcion
+        private void HabilitarModoEdicion(bool toggle) //x siendo el booleano que entra por la funcion
         {
-            txtId.Enabled = x;
-            txtNombre.Enabled = x;
-            txtDescripcion.Enabled = x;
-            txtPrecio.Enabled = x;
-            btnBorrar.Enabled = !x;
-            btnNuevo.Enabled = !x;
-            btnEditar.Enabled = !x;
-            btnSalir.Enabled = !x;
-            btnCancelar.Enabled = x;
-            btnGuardar.Enabled = x;
+            grdArticulos.Enabled = !toggle;
+            HabilitarCamposArticulo(toggle);
+            btnNuevo.Enabled = !toggle;
+            HabilitarBotonesInteraccionArticulo(false);
+            HabilitarBotonesEdicionArticulo(toggle);
+            HabilitarBotonesVentana(!toggle);
+        }
+
+        void HabilitarCamposArticulo(bool toggle)
+        {
+            txtId.Enabled = toggle;
+            txtNombre.Enabled = toggle;
+            txtDescripcion.Enabled = toggle;
+            txtPrecio.Enabled = toggle;
+        }
+
+        void HabilitarBotonesEdicionArticulo(bool toggle)
+        {
+            btnCancelar.Enabled = toggle;
+            btnGuardar.Enabled = toggle;
+        }
+
+        void HabilitarBotonesInteraccionArticulo(bool toggle)
+        {
+            btnBorrar.Enabled = toggle;
+            btnEditar.Enabled = toggle;
+        }
+
+        void HabilitarBotonesVentana(bool toggle)
+        {
+            btnSalir.Enabled = toggle;
         }
 
         private void limpiar()
@@ -69,7 +90,8 @@ namespace SistemaHotelPAV.Formularios
             tabla = objDatos.consultarTabla("Tipos");
             LlenarCombo(cmbTipos, tabla, "nombre", "id_tipo");
 
-            habilitar(false);
+            HabilitarModoEdicion(false);
+            HabilitarBotonesInteraccionArticulo(false);
         }
 
         private void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value)
@@ -92,13 +114,14 @@ namespace SistemaHotelPAV.Formularios
 
         private void grdArticulos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            HabilitarBotonesInteraccionArticulo(true);
             this.actualizarCampos(Convert.ToInt32(grdArticulos.SelectedCells[0].Value)); //Selecciona el id que esta en la primera celda de la data grid view y la pasa como parametro
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             flagNuevo = true;
-            habilitar(true);
+            HabilitarModoEdicion(true);
             limpiar();
             txtId.Focus();
         }
@@ -106,7 +129,7 @@ namespace SistemaHotelPAV.Formularios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             flagNuevo = false;
-            habilitar(false);
+            HabilitarModoEdicion(false);
             limpiar();
         }
 
@@ -150,7 +173,7 @@ namespace SistemaHotelPAV.Formularios
                 MessageBox.Show("El articulo se guardo con exito!", "Guardado exitoso");
                 this.grdArticulos.DataSource = articuloDA.recuperarArticulos(); //Recargo la grilla despues de guardar
                 this.limpiar();
-                this.habilitar(false);
+                this.HabilitarModoEdicion(false);
             }
             else
             {
@@ -179,7 +202,7 @@ namespace SistemaHotelPAV.Formularios
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            this.habilitar(true);
+            this.HabilitarModoEdicion(true);
             txtId.Focus();
         }
 

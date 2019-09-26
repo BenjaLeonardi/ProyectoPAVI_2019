@@ -16,21 +16,24 @@ namespace SistemaHotelPAV.DataAccessLayer {
                 " FROM Articulos a JOIN Tipos t on a.id_tipo=t.id_tipo");
         }
 
-        public bool validarDatosArticulo(Articulo articulo) {
+        public enum ValidacionArticulo { exito, id, nombre, descripcion, preciounitario }
+
+        public ValidacionArticulo ValidarDatosArticulo(Articulo articulo)
+        {
             if (articulo.ID_ART == -1) {
-                return false;
+                return ValidacionArticulo.id;
             }
             if (articulo.NOMBRE == "") {
-                return false;
+                return ValidacionArticulo.nombre;
             }
             if (articulo.DESCRIPCION == "") {
-                return false;
+                return ValidacionArticulo.descripcion;
             }
-            if (articulo.PRECIOUNITARIO == -1) {
-                return false;
+            if (articulo.PRECIOUNITARIO <= 0) {
+                return ValidacionArticulo.preciounitario;
             }
 
-            return true;
+            return ValidacionArticulo.exito;
         }
 
         public void eliminarArticulo(Articulo articulo) {

@@ -112,12 +112,30 @@ namespace SistemaHotelPAV.Formularios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            objArt.ID_ART = Convert.ToInt32(txtId.Text); //Aca armo el usuario correctamente con todos los atributos asignados desde los txt
+            //Aca armo el articulo correctamente con todos los atributos asignados desde los txt
+            try
+            {
+                objArt.ID_ART = Convert.ToInt32(txtId.Text);
+            }
+            catch (System.FormatException)
+            {
+                objArt.ID_ART = -1;
+            }
+            try
+            {
+                objArt.PRECIOUNITARIO = Convert.ToInt32(txtPrecio.Text);
+            }
+            catch (System.FormatException)
+            {
+                objArt.PRECIOUNITARIO = -1;
+            }
+
             objArt.NOMBRE = txtNombre.Text;
             objArt.DESCRIPCION = txtDescripcion.Text;
-            objArt.PRECIOUNITARIO = Convert.ToInt32(txtPrecio.Text);
 
-            if (articuloDA.validarDatosArticulo(objArt))
+            ArticuloDA.ValidacionArticulo validacion = articuloDA.ValidarDatosArticulo(objArt);
+
+            if (validacion == ArticuloDA.ValidacionArticulo.exito)
             {
                 if (this.flagNuevo == true)
                 {
@@ -128,12 +146,35 @@ namespace SistemaHotelPAV.Formularios
                 {
                     articuloDA.modificarArticulo(objArt);
                 }
-            }
 
-            MessageBox.Show("El articulo se guardo con exito!", "Guardado exitoso");
-            this.grdArticulos.DataSource = articuloDA.recuperarArticulos(); //Recargo la grilla despues de guardar
-            this.limpiar();
-            this.habilitar(false);
+                MessageBox.Show("El articulo se guardo con exito!", "Guardado exitoso");
+                this.grdArticulos.DataSource = articuloDA.recuperarArticulos(); //Recargo la grilla despues de guardar
+                this.limpiar();
+                this.habilitar(false);
+            }
+            else
+            {
+                string mensaje;
+                switch (validacion)
+                {
+                    case ArticuloDA.ValidacionArticulo.descripcion:
+                        mensaje = "Descripcion vacia";
+                        break;
+                    case ArticuloDA.ValidacionArticulo.id:
+                        mensaje = "ID invalido";
+                        break;
+                    case ArticuloDA.ValidacionArticulo.nombre:
+                        mensaje = "Nombre invalido";
+                        break;
+                    case ArticuloDA.ValidacionArticulo.preciounitario:
+                        mensaje = "Precio unitario invalido";
+                        break;
+                    default:
+                        mensaje = "Error";
+                        break;
+                }
+                MessageBox.Show(mensaje, "Error");
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

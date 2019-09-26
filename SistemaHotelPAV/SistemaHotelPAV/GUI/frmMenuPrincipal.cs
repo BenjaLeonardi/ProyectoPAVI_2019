@@ -36,8 +36,8 @@ namespace SistemaHotelPAV.Formularios
         }
 
         private void frmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if ((MessageBox.Show("Desea salir del programa?", "SALIENDO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2)) == DialogResult.Yes) //Ver porque se repite dos veces con este metodo
+        {/*
+            if ((MessageBox.Show("Desea cerrar sesion?", "Cerrando Sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2)) == DialogResult.Yes) //Ver porque se repite dos veces con este metodo
             {
                 e.Cancel = false;
 
@@ -45,7 +45,7 @@ namespace SistemaHotelPAV.Formularios
             else
             {
                 e.Cancel = true;
-            }
+            }*/
         }
 
         private void frmMenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)

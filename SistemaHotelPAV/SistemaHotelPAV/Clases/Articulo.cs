@@ -8,6 +8,13 @@ namespace SistemaHotelPAV.Entities
         private string nombre;
         private string descripcion;
         private int precioUnitario; //Defino las propiedades
+        int id_tipo;
+
+        public int ID_TIPO
+        {
+            get { return id_tipo; }
+            set { id_tipo = value; }
+        }
 
         public int ID_ART
         {

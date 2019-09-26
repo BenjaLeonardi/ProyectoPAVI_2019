@@ -49,6 +49,8 @@
             this.lblTipo = new System.Windows.Forms.Label();
             this.cmbTipos = new System.Windows.Forms.ComboBox();
             this.btnDetalle = new System.Windows.Forms.Button();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdArticulos)).BeginInit();
             this.grbFiltros.SuspendLayout();
             this.SuspendLayout();
@@ -76,14 +78,14 @@
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(15, 115);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(208, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(236, 20);
             this.txtDescripcion.TabIndex = 2;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(15, 70);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(208, 20);
+            this.txtNombre.Size = new System.Drawing.Size(236, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // txtId
@@ -249,6 +251,23 @@
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
+            // cmbTipo
+            // 
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Location = new System.Drawing.Point(130, 164);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipo.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(130, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tipos";
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,7 +275,9 @@
             this.ClientSize = new System.Drawing.Size(594, 500);
             this.Controls.Add(this.grbFiltros);
             this.Controls.Add(this.grdArticulos);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtId);
@@ -305,5 +326,7 @@
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnDetalle;
+        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Label label1;
     }
 }

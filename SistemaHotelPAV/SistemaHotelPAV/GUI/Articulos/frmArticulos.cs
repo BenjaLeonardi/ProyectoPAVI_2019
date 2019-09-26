@@ -42,6 +42,7 @@ namespace SistemaHotelPAV.Formularios
             txtNombre.Enabled = toggle;
             txtDescripcion.Enabled = toggle;
             txtPrecio.Enabled = toggle;
+            cmbTipo.Enabled = toggle;
         }
 
         void HabilitarBotonesEdicionArticulo(bool toggle)
@@ -67,6 +68,7 @@ namespace SistemaHotelPAV.Formularios
             txtNombre.Text = "";
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
+            cmbTipo.SelectedValue = -1;
         }
 
 
@@ -89,7 +91,8 @@ namespace SistemaHotelPAV.Formularios
             DataTable tabla = new DataTable();
             tabla = objDatos.consultarTabla("Tipos");
             LlenarCombo(cmbTipos, tabla, "nombre", "id_tipo");
-
+            LlenarCombo(cmbTipo, tabla, "nombre", "id_tipo");
+            
             HabilitarModoEdicion(false);
             HabilitarBotonesInteraccionArticulo(false);
         }
@@ -110,6 +113,7 @@ namespace SistemaHotelPAV.Formularios
             txtNombre.Text = tabla.Rows[0]["nombre"].ToString(); 
             txtDescripcion.Text = tabla.Rows[0]["descripcion"].ToString();
             txtPrecio.Text = tabla.Rows[0]["precioUnitario"].ToString();
+            cmbTipo.SelectedValue = tabla.Rows[0]["id_tipo"];
         }
 
         private void grdArticulos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -155,6 +159,7 @@ namespace SistemaHotelPAV.Formularios
 
             objArt.NOMBRE = txtNombre.Text;
             objArt.DESCRIPCION = txtDescripcion.Text;
+            objArt.ID_TIPO = (int)cmbTipo.SelectedValue;
 
             ArticuloDA.ValidacionArticulo validacion = articuloDA.ValidarDatosArticulo(objArt);
 

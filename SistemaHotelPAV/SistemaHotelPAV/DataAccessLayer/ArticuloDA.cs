@@ -47,7 +47,8 @@ namespace SistemaHotelPAV.DataAccessLayer {
             SqlUpdate = @"UPDATE Articulos SET id_art='" + articulo.ID_ART + "'," +
                                             "nombre='" + articulo.NOMBRE + "'," +
                                             "descripcion='" + articulo.DESCRIPCION + "'," +
-                                            "precioUnitario=" + articulo.PRECIOUNITARIO +
+                                            "precioUnitario=" + articulo.PRECIOUNITARIO + "," +
+                                            "id_tipo=" + articulo.ID_TIPO + "" +
                                             " WHERE id_art=" + articulo.ID_ART;
             objDatos.actualizar(SqlUpdate);
         }
@@ -55,11 +56,12 @@ namespace SistemaHotelPAV.DataAccessLayer {
         public void guardarArticulo(Articulo articulo) {
             string SqlInsert = "";
 
-            SqlInsert = @"INSERT INTO Articulos (id_art,nombre,descripcion,precioUnitario) VALUES ('" +
+            SqlInsert = @"INSERT INTO Articulos (id_art,nombre,descripcion,precioUnitario,id_tipo) VALUES ('" +
                 articulo.ID_ART + "','" +
                 articulo.NOMBRE + "','" +
                 articulo.DESCRIPCION + "'," +
-                articulo.PRECIOUNITARIO + ")";
+                articulo.PRECIOUNITARIO + "," +
+                articulo.ID_TIPO + ")";
 
             objDatos.actualizar(SqlInsert);
         }

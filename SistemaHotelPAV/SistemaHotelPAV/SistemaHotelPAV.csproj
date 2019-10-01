@@ -57,6 +57,12 @@
     <Compile Include="GUI\Articulos\frmDetalleArticulo.Designer.cs">
       <DependentUpon>frmDetalleArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmFactura.Designer.cs">
+      <DependentUpon>frmFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Usuarios\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Articulos\frmDetalleArticulo.resx">
       <DependentUpon>frmDetalleArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmFactura.resx">
+      <DependentUpon>frmFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Usuarios\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

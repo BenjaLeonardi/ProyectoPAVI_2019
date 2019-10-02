@@ -66,6 +66,7 @@ namespace SistemaHotelPAV.GUI {
                     txtArticuloPrecio.Text,
                     subtotal.ToString());
             }
+            MostrarTotal();
         }
 
         private void btnQuitarArt_Click(object sender, EventArgs e)
@@ -74,6 +75,7 @@ namespace SistemaHotelPAV.GUI {
             {
                 dgvListaArt.Rows.RemoveAt(item.Index);
             }
+            MostrarTotal();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -88,25 +90,31 @@ namespace SistemaHotelPAV.GUI {
 
         }
 
-        private void cmbTipoFactura_SelectedIndexChanged(object sender, EventArgs e) {
+        private void cmbTipoFactura_SelectedIndexChanged(object sender, EventArgs e) 
+        {
             if (cmbTipoFactura.SelectedItem != null) {
                 string tipo_seleccionado = cmbTipoFactura.SelectedValue.ToString();
                 // Solo buscamos el ultimo ID si el tipo seleccionado es valido [un numero]
-                if (int.TryParse(tipo_seleccionado, out int parsed)) {
+                int parsed = 0;
+                if (int.TryParse(tipo_seleccionado, out parsed))
+                {
                     string ultimo_id = (Facturas.GetLastFacturaID(tipo_seleccionado) + 1).ToString();
                     txtNroFactura.Text = ultimo_id;
                 }
             }
         }
 
-        private void pickerFechaInicioEstadia_ValueChanged(object sender, EventArgs e) {
+        private void pickerFechaInicioEstadia_ValueChanged(object sender, EventArgs e) 
+        {
             DisplayFoundEstadia();
         }
-        private void txtNroEstadia_TextChanged(object sender, EventArgs e) {
+        private void txtNroEstadia_TextChanged(object sender, EventArgs e) 
+        {
             DisplayFoundEstadia();
         }
         
-        void DisplayFoundEstadia() {
+        void DisplayFoundEstadia() 
+        {
             DateTime fechaInicio = pickerFechaInicioEstadia.Value;
             int nroEstadia = -1;
             estadiaSeleccionada = new DataTable();
@@ -114,39 +122,48 @@ namespace SistemaHotelPAV.GUI {
             if(int.TryParse(txtNroEstadia.Text, out nroEstadia)) {
                 estadiaSeleccionada = Estadias.GetEstadiaCompleto(fechaInicio, nroEstadia);
             }
-            if (estadiaSeleccionada.Rows.Count > 0) {
+            if (estadiaSeleccionada.Rows.Count > 0) 
+            {
                 txtCliente.Text = estadiaSeleccionada.Rows[0]["apellidos"].ToString() + ", " + estadiaSeleccionada.Rows[0]["nombres"].ToString();
             } else {
                 txtCliente.Text = "No se encontraron estadias";
             }
         }
 
-        private void txtCliente_TextChanged(object sender, EventArgs e) {
+        private void txtCliente_TextChanged(object sender, EventArgs e) 
+        {
 
         }
         
-        private void txtID_TextChanged(object sender, EventArgs e) {
+        private void txtID_TextChanged(object sender, EventArgs e) 
+        {
             int idArticulo;
             articuloSeleccionado = new DataTable();
-            if (int.TryParse(txtIdArticulo.Text, out idArticulo)){
+            if (int.TryParse(txtIdArticulo.Text, out idArticulo))
+            {
                 articuloSeleccionado = Articulos.recuperarArticuloID(idArticulo);
             }
-            if(articuloSeleccionado.Rows.Count > 0) {
+            if(articuloSeleccionado.Rows.Count > 0) 
+            {
                 txtArticuloNombre.Text = articuloSeleccionado.Rows[0]["nombre"].ToString();
                 txtArticuloPrecio.Text = "$ " + articuloSeleccionado.Rows[0]["precioUnitario"].ToString();
                 HabilitarSetteoCantidad(true);
-            } else {
+            } 
+            else 
+            {
                 txtArticuloNombre.Text = "ID invalido. Ingrese un ID de articulo Valido";
                 HabilitarAdicionDetalle(false);
                 HabilitarSetteoCantidad(false);
             }
         }
 
-        void HabilitarAdicionDetalle(bool toggle) {
+        void HabilitarAdicionDetalle(bool toggle) 
+        {
             btnArticuloAgregar.Enabled = toggle;
         }
 
-        void HabilitarSetteoCantidad(bool toggle) {
+        void HabilitarSetteoCantidad(bool toggle) 
+        {
             txtArticuloCantidad.Enabled = toggle;
             txtArticuloCantidad.Text = "";
             if (toggle) {
@@ -154,10 +171,13 @@ namespace SistemaHotelPAV.GUI {
             }
         }
 
-        private void txtCantidad_TextChanged(object sender, EventArgs e) {
+        private void txtCantidad_TextChanged(object sender, EventArgs e) 
+        {
             int cantidadArticulo = 0;
-            if(articuloSeleccionado.Rows.Count > 0 && int.TryParse(txtArticuloCantidad.Text, out cantidadArticulo)) {
-                if (cantidadArticulo > 0) {
+            if(articuloSeleccionado.Rows.Count > 0 && int.TryParse(txtArticuloCantidad.Text, out cantidadArticulo)) 
+            {
+                if (cantidadArticulo > 0) 
+                {
                     txtArticuloSubtotal.Text = "$ " + (cantidadArticulo * float.Parse(articuloSeleccionado.Rows[0]["precioUnitario"].ToString())).ToString();
                     HabilitarAdicionDetalle(true);
                 } else {
@@ -170,24 +190,33 @@ namespace SistemaHotelPAV.GUI {
             }
         }
 
-        void MostrarTotal() {
-
+        void MostrarTotal() 
+        {
+            float sum = 0;
+            for (int i = 0; i < dgvListaArt.RowCount; i++)
+            {
+                sum += float.Parse(dgvListaArt.Rows[i].Cells["subtotal"].Value.ToString());
+            }
+            txtTotal.Text = sum.ToString();
         }
 
-        void GrabarFactura() {
+        void GrabarFactura() 
+        {
             string consulta = "INSERT into Facturas values("
                 + txtNroFactura.Text + ","
                 + cmbTipoFactura.SelectedValue.ToString() + ",'"
-                + pickerFechaFactura.Value.ToShortDateString() + "',"
+                + pickerFechaFactura.Value.ToString("yyyy'-'MM'-'dd") + "',"
                 + txtNroEstadia.Text + ",'"
-                + pickerFechaInicioEstadia.Value.ToShortDateString() + "',"
+                + pickerFechaInicioEstadia.Value.ToString("yyyy'-'MM'-'dd") + "',"
                 + txtTotal.Text.ToString() + ")";
 
             Datos.EjecutarSQLConTransaccion(consulta);
         }
 
-        void GrabarDetalle() {
-            for (int i = 0; i < dgvListaArt.Rows.Count; i++) {
+        void GrabarDetalle() 
+        {
+            for (int i = 0; i < dgvListaArt.Rows.Count; i++) 
+            {
                 string consulta = "insert into DetallesFactura values("
                                                     + txtNroFactura.Text + ","
                                                     + cmbTipoFactura.SelectedValue.ToString() + ","
@@ -198,7 +227,8 @@ namespace SistemaHotelPAV.GUI {
             }
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e) {
+        private void btnRegistrar_Click(object sender, EventArgs e) 
+        {
             if (dgvListaArt.Rows.Count > 0) {
                 Datos.conectarConTransaccion();
                 GrabarFactura();

@@ -36,6 +36,12 @@
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvListaArt = new System.Windows.Forms.DataGridView();
+            this.id_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -53,12 +59,6 @@
             this.txtArticuloCantidad = new System.Windows.Forms.TextBox();
             this.txtArticuloNombre = new System.Windows.Forms.TextBox();
             this.txtIdArticulo = new System.Windows.Forms.TextBox();
-            this.id_articulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArt)).BeginInit();
             this.gbxDetalleFac.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +124,7 @@
             this.txtNroEstadia.Size = new System.Drawing.Size(100, 20);
             this.txtNroEstadia.TabIndex = 0;
             this.txtNroEstadia.Text = "0";
+            this.txtNroEstadia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtNroEstadia.TextChanged += new System.EventHandler(this.txtNroEstadia_TextChanged);
             // 
             // txtNroFactura
@@ -134,6 +135,7 @@
             this.txtNroFactura.Size = new System.Drawing.Size(100, 20);
             this.txtNroFactura.TabIndex = 0;
             this.txtNroFactura.Text = "0";
+            this.txtNroFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // pickerFechaInicioEstadia
             // 
@@ -192,6 +194,50 @@
             this.dgvListaArt.TabIndex = 5;
             this.dgvListaArt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // id_articulo
+            // 
+            this.id_articulo.Frozen = true;
+            this.id_articulo.HeaderText = "ID";
+            this.id_articulo.Name = "id_articulo";
+            this.id_articulo.ReadOnly = true;
+            this.id_articulo.Width = 50;
+            // 
+            // nombre
+            // 
+            this.nombre.Frozen = true;
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.Frozen = true;
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 120;
+            // 
+            // cantidad
+            // 
+            this.cantidad.Frozen = true;
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 60;
+            // 
+            // precioUnitario
+            // 
+            this.precioUnitario.Frozen = true;
+            this.precioUnitario.HeaderText = "Precio";
+            this.precioUnitario.Name = "precioUnitario";
+            this.precioUnitario.ReadOnly = true;
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
+            // 
             // btnRegistrar
             // 
             this.btnRegistrar.Location = new System.Drawing.Point(470, 552);
@@ -200,6 +246,7 @@
             this.btnRegistrar.TabIndex = 6;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnCancelar
             // 
@@ -218,6 +265,8 @@
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
             this.txtTotal.TabIndex = 8;
+            this.txtTotal.Text = "0";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -324,6 +373,8 @@
             this.txtArticuloPrecio.ReadOnly = true;
             this.txtArticuloPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtArticuloPrecio.TabIndex = 6;
+            this.txtArticuloPrecio.Text = "0";
+            this.txtArticuloPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtArticuloSubtotal
             // 
@@ -332,6 +383,8 @@
             this.txtArticuloSubtotal.ReadOnly = true;
             this.txtArticuloSubtotal.Size = new System.Drawing.Size(100, 20);
             this.txtArticuloSubtotal.TabIndex = 6;
+            this.txtArticuloSubtotal.Text = "0";
+            this.txtArticuloSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtArticuloCantidad
             // 
@@ -340,6 +393,7 @@
             this.txtArticuloCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtArticuloCantidad.TabIndex = 6;
             this.txtArticuloCantidad.Text = "1";
+            this.txtArticuloCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtArticuloCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             // 
             // txtArticuloNombre
@@ -357,51 +411,8 @@
             this.txtIdArticulo.Name = "txtIdArticulo";
             this.txtIdArticulo.Size = new System.Drawing.Size(100, 20);
             this.txtIdArticulo.TabIndex = 6;
+            this.txtIdArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtIdArticulo.TextChanged += new System.EventHandler(this.txtID_TextChanged);
-            // 
-            // id_articulo
-            // 
-            this.id_articulo.Frozen = true;
-            this.id_articulo.HeaderText = "ID";
-            this.id_articulo.Name = "id_articulo";
-            this.id_articulo.ReadOnly = true;
-            this.id_articulo.Width = 50;
-            // 
-            // nombre
-            // 
-            this.nombre.Frozen = true;
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.Frozen = true;
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 120;
-            // 
-            // cantidad
-            // 
-            this.cantidad.Frozen = true;
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 60;
-            // 
-            // precioUnitario
-            // 
-            this.precioUnitario.Frozen = true;
-            this.precioUnitario.HeaderText = "Precio";
-            this.precioUnitario.Name = "precioUnitario";
-            this.precioUnitario.ReadOnly = true;
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
             // 
             // frmFactura
             // 

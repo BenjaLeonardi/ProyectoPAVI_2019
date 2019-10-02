@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace SistemaHotelPAV.DataAccessLayer
 {
     class Datos
     {
+        enum ResultadoTransaccion {exito, fracaso}
+
+        private ResultadoTransaccion transactionStatus = ResultadoTransaccion.exito;
         private OleDbConnection conexion = new OleDbConnection();
         private OleDbCommand comando = new OleDbCommand();
         //private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=DESKTOP-2L8MG4Q\SQLEXPRESS;Persist Security Info=True;Integrated Security=SSPI;Initial Catalog=HotelGrandario";
@@ -27,6 +31,24 @@ namespace SistemaHotelPAV.DataAccessLayer
         private void desconectar()
         {
             conexion.Close();
+        }
+
+        public void DesconectarTransaccion() {
+            if (transactionStatus == ResultadoTransaccion.exito) {
+                mTransaction.Commit();
+                MessageBox.Show("La trasacción resultó con éxito...");
+            } else {
+                mTransaction.Rollback();
+                MessageBox.Show("La trasacción no pudo realizarce...");
+            }
+
+            if ((conexion.State == ConnectionState.Open)) {
+                conexion.Close();
+            }
+
+            // Dispose() libera los recursos asociados a la conexón
+            conexion.Dispose();
+
         }
 
         public DataTable consultar(string consultaSQL) // Data table no esta dentro de OLEDB sino de DATA, es una tabla en memoria con filas y columnas
@@ -71,6 +93,27 @@ namespace SistemaHotelPAV.DataAccessLayer
             else
             {
                 return 0;
+            }
+        }
+
+        private OleDbTransaction mTransaction = null;
+        
+        public void conectarConTransaccion() {
+            transactionStatus = ResultadoTransaccion.exito;
+            conexion.ConnectionString = cadenaConexion;
+            conexion.Open();
+            mTransaction = conexion.BeginTransaction();
+            comando.Transaction = mTransaction;
+            comando.Connection = conexion;
+        }
+
+        public void EjecutarSQLConTransaccion(string consulta) {
+            try {
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+                comando.ExecuteNonQuery();
+            } catch {
+                transactionStatus = ResultadoTransaccion.fracaso;
             }
         }
     }

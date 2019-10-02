@@ -1,4 +1,5 @@
 ﻿using SistemaHotelPAV.DataAccessLayer;
+using SistemaHotelPAV.Entities;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -6,10 +7,11 @@ using System.Windows.Forms;
 namespace SistemaHotelPAV.GUI {
     public partial class frmFactura : Form
     {
-        Datos objDatos = new Datos();
+        Datos Datos = new Datos();
         FacturaDA Facturas = new FacturaDA();
         EstadiaDA Estadias = new EstadiaDA();
         ArticuloDA Articulos = new ArticuloDA();
+        Usuarios Usuario = new Usuarios();
 
         DataTable tablaTiposFactura = new DataTable();
 
@@ -27,7 +29,7 @@ namespace SistemaHotelPAV.GUI {
 
         private void frmFactura_Load(object sender, EventArgs e)
         {
-            tablaTiposFactura = objDatos.consultarTabla("TiposFactura");
+            tablaTiposFactura = Datos.consultarTabla("TiposFactura");
             LlenarCombo(cmbTipoFactura, tablaTiposFactura, "descripcion", "id_tipo");
             
             // Setteamos hoy
@@ -46,14 +48,24 @@ namespace SistemaHotelPAV.GUI {
             cbo.SelectedIndex = -1;
         }
 
-        private void btnAgregarArt_Click(object sender, EventArgs e)
-        {
-            dgvListaArt.Rows.Add(txtIdArticulo.Text, 
-                txtArticuloNombre.Text, 
-                articuloSeleccionado.Rows[0]["descripcion"],
-                txtArticuloCantidad.Text,
-                txtArticuloPrecio.Text, 
-                txtArticuloSubtotal.Text);
+        private void btnAgregarArt_Click(object sender, EventArgs e) {
+            float subtotal = float.Parse(txtArticuloCantidad.Text) * float.Parse(articuloSeleccionado.Rows[0]["precioUnitario"].ToString());
+            bool existente = false;
+            for (int i = 0; i < dgvListaArt.RowCount; i++) {
+                if (dgvListaArt.Rows[i].Cells["id_articulo"].Value.ToString() == txtIdArticulo.Text) {
+                    dgvListaArt.Rows[i].Cells["cantidad"].Value = (int.Parse(dgvListaArt.Rows[i].Cells["cantidad"].Value.ToString()) + int.Parse(txtArticuloCantidad.Text)).ToString();
+                    dgvListaArt.Rows[i].Cells["subtotal"].Value = (float.Parse(dgvListaArt.Rows[i].Cells["subtotal"].Value.ToString()) + subtotal).ToString();
+                    existente = true;
+                }
+            }
+            if (!existente) {
+                dgvListaArt.Rows.Add(txtIdArticulo.Text,
+                    txtArticuloNombre.Text,
+                    articuloSeleccionado.Rows[0]["descripcion"],
+                    txtArticuloCantidad.Text,
+                    txtArticuloPrecio.Text,
+                    subtotal.ToString());
+            }
         }
 
         private void btnQuitarArt_Click(object sender, EventArgs e)
@@ -81,7 +93,7 @@ namespace SistemaHotelPAV.GUI {
                 string tipo_seleccionado = cmbTipoFactura.SelectedValue.ToString();
                 // Solo buscamos el ultimo ID si el tipo seleccionado es valido [un numero]
                 if (int.TryParse(tipo_seleccionado, out int parsed)) {
-                    string ultimo_id = Facturas.GetLastFacturaID(tipo_seleccionado).ToString();
+                    string ultimo_id = (Facturas.GetLastFacturaID(tipo_seleccionado) + 1).ToString();
                     txtNroFactura.Text = ultimo_id;
                 }
             }
@@ -157,5 +169,43 @@ namespace SistemaHotelPAV.GUI {
                 HabilitarAdicionDetalle(false);
             }
         }
+
+        void MostrarTotal() {
+
+        }
+
+        void GrabarFactura() {
+            string consulta = "INSERT into Facturas values("
+                + txtNroFactura.Text + ","
+                + cmbTipoFactura.SelectedValue.ToString() + ",'"
+                + pickerFechaFactura.Value.ToShortDateString() + "',"
+                + txtNroEstadia.Text + ",'"
+                + pickerFechaInicioEstadia.Value.ToShortDateString() + "',"
+                + txtTotal.Text.ToString() + ")";
+
+            Datos.EjecutarSQLConTransaccion(consulta);
+        }
+
+        void GrabarDetalle() {
+            for (int i = 0; i < dgvListaArt.Rows.Count; i++) {
+                string consulta = "insert into DetallesFactura values("
+                                                    + txtNroFactura.Text + ","
+                                                    + cmbTipoFactura.SelectedValue.ToString() + ","
+                                                    + dgvListaArt.Rows[i].Cells["id_articulo"].Value.ToString() + ","
+                                                    + dgvListaArt.Rows[i].Cells["cantidad"].Value.ToString() + ","
+                                                    + dgvListaArt.Rows[i].Cells["precioUnitario"].Value.ToString()+ ")";
+                Datos.EjecutarSQLConTransaccion(consulta);
+            }
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e) {
+            if (dgvListaArt.Rows.Count > 0) {
+                Datos.conectarConTransaccion();
+                GrabarFactura();
+                GrabarDetalle();
+                Datos.DesconectarTransaccion();
+            }
+        }
+
     }
 }

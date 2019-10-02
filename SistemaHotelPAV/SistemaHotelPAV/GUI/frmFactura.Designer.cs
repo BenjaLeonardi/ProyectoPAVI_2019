@@ -83,7 +83,7 @@
             // 
             // cmbTipoFactura
             // 
-            this.cmbTipoFactura.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbTipoFactura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoFactura.FormattingEnabled = true;
             this.cmbTipoFactura.Location = new System.Drawing.Point(15, 25);
             this.cmbTipoFactura.Name = "cmbTipoFactura";
@@ -102,6 +102,7 @@
             // 
             // pickerFechaFactura
             // 
+            this.pickerFechaFactura.Enabled = false;
             this.pickerFechaFactura.Location = new System.Drawing.Point(426, 26);
             this.pickerFechaFactura.Name = "pickerFechaFactura";
             this.pickerFechaFactura.Size = new System.Drawing.Size(200, 20);

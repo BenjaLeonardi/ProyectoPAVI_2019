@@ -9,10 +9,13 @@ namespace SistemaHotelPAV.GUI {
         Datos objDatos = new Datos();
         FacturaDA Facturas = new FacturaDA();
         EstadiaDA Estadias = new EstadiaDA();
-        DataTable tablaTiposFactura = new DataTable();
-        DataTable tablaClientes = new DataTable();
-        DataTable tablaArticulos = new DataTable();
+        ArticuloDA Articulos = new ArticuloDA();
 
+        DataTable tablaTiposFactura = new DataTable();
+
+        DataTable estadiaSeleccionada = new DataTable();
+        DataTable articuloSeleccionado = new DataTable();
+        
         public frmFactura()
         {
             InitializeComponent();
@@ -26,12 +29,13 @@ namespace SistemaHotelPAV.GUI {
         {
             tablaTiposFactura = objDatos.consultarTabla("TiposFactura");
             LlenarCombo(cmbTipoFactura, tablaTiposFactura, "descripcion", "id_tipo");
-
-            tablaClientes = objDatos.consultarTabla("Clientes");
-            tablaArticulos = objDatos.consultarTabla("Articulos");
-
+            
             // Setteamos hoy
             pickerFechaFactura.Value = DateTime.Today;
+
+            // Deshabilitamos agregar
+            HabilitarAdicionDetalle(false);
+            HabilitarSetteoCantidad(false);
         }
 
         private void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value)
@@ -44,7 +48,12 @@ namespace SistemaHotelPAV.GUI {
 
         private void btnAgregarArt_Click(object sender, EventArgs e)
         {
-            dgvListaArt.Rows.Add(txtID.Text, txtNombreArt.Text, txtCantidad.Text, "DESCRIPCION", txtPrecio.Text, (Convert.ToInt32(txtPrecio.Text) * Convert.ToInt32(txtCantidad.Text))); //Falta descripcion que entraria como dato de la consulta del id en la tabla articulos, porque no hace falta un textBox con descripcion, subtotal safa porque es un calculo pasado a String
+            dgvListaArt.Rows.Add(txtIdArticulo.Text, 
+                txtArticuloNombre.Text, 
+                articuloSeleccionado.Rows[0]["descripcion"],
+                txtArticuloCantidad.Text,
+                txtArticuloPrecio.Text, 
+                txtArticuloSubtotal.Text);
         }
 
         private void btnQuitarArt_Click(object sender, EventArgs e)
@@ -84,9 +93,7 @@ namespace SistemaHotelPAV.GUI {
         private void txtNroEstadia_TextChanged(object sender, EventArgs e) {
             DisplayFoundEstadia();
         }
-
-        DataTable estadiaSeleccionada;
-
+        
         void DisplayFoundEstadia() {
             DateTime fechaInicio = pickerFechaInicioEstadia.Value;
             int nroEstadia = -1;
@@ -99,6 +106,55 @@ namespace SistemaHotelPAV.GUI {
                 txtCliente.Text = estadiaSeleccionada.Rows[0]["apellidos"].ToString() + ", " + estadiaSeleccionada.Rows[0]["nombres"].ToString();
             } else {
                 txtCliente.Text = "No se encontraron estadias";
+            }
+        }
+
+        private void txtCliente_TextChanged(object sender, EventArgs e) {
+
+        }
+        
+        private void txtID_TextChanged(object sender, EventArgs e) {
+            int idArticulo;
+            articuloSeleccionado = new DataTable();
+            if (int.TryParse(txtIdArticulo.Text, out idArticulo)){
+                articuloSeleccionado = Articulos.recuperarArticuloID(idArticulo);
+            }
+            if(articuloSeleccionado.Rows.Count > 0) {
+                txtArticuloNombre.Text = articuloSeleccionado.Rows[0]["nombre"].ToString();
+                txtArticuloPrecio.Text = "$ " + articuloSeleccionado.Rows[0]["precioUnitario"].ToString();
+                HabilitarSetteoCantidad(true);
+            } else {
+                txtArticuloNombre.Text = "ID invalido. Ingrese un ID de articulo Valido";
+                HabilitarAdicionDetalle(false);
+                HabilitarSetteoCantidad(false);
+            }
+        }
+
+        void HabilitarAdicionDetalle(bool toggle) {
+            btnArticuloAgregar.Enabled = toggle;
+        }
+
+        void HabilitarSetteoCantidad(bool toggle) {
+            txtArticuloCantidad.Enabled = toggle;
+            txtArticuloCantidad.Text = "";
+            if (toggle) {
+                txtArticuloCantidad.Text = "1";
+            }
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e) {
+            int cantidadArticulo = 0;
+            if(articuloSeleccionado.Rows.Count > 0 && int.TryParse(txtArticuloCantidad.Text, out cantidadArticulo)) {
+                if (cantidadArticulo > 0) {
+                    txtArticuloSubtotal.Text = "$ " + (cantidadArticulo * float.Parse(articuloSeleccionado.Rows[0]["precioUnitario"].ToString())).ToString();
+                    HabilitarAdicionDetalle(true);
+                } else {
+                    txtArticuloSubtotal.Text = "";
+                    HabilitarAdicionDetalle(false);
+                }
+            } else {
+                txtArticuloSubtotal.Text = "";
+                HabilitarAdicionDetalle(false);
             }
         }
     }

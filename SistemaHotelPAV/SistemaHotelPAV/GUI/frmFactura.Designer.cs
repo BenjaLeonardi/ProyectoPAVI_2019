@@ -88,7 +88,7 @@
             this.cmbTipoFactura.Location = new System.Drawing.Point(15, 25);
             this.cmbTipoFactura.Name = "cmbTipoFactura";
             this.cmbTipoFactura.Size = new System.Drawing.Size(121, 21);
-            this.cmbTipoFactura.TabIndex = 2;
+            this.cmbTipoFactura.TabIndex = 0;
             this.cmbTipoFactura.SelectedIndexChanged += new System.EventHandler(this.cmbTipoFactura_SelectedIndexChanged);
             // 
             // label3
@@ -122,7 +122,7 @@
             this.txtNroEstadia.Location = new System.Drawing.Point(251, 76);
             this.txtNroEstadia.Name = "txtNroEstadia";
             this.txtNroEstadia.Size = new System.Drawing.Size(100, 20);
-            this.txtNroEstadia.TabIndex = 0;
+            this.txtNroEstadia.TabIndex = 2;
             this.txtNroEstadia.Text = "0";
             this.txtNroEstadia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtNroEstadia.TextChanged += new System.EventHandler(this.txtNroEstadia_TextChanged);
@@ -142,7 +142,7 @@
             this.pickerFechaInicioEstadia.Location = new System.Drawing.Point(15, 76);
             this.pickerFechaInicioEstadia.Name = "pickerFechaInicioEstadia";
             this.pickerFechaInicioEstadia.Size = new System.Drawing.Size(230, 20);
-            this.pickerFechaInicioEstadia.TabIndex = 3;
+            this.pickerFechaInicioEstadia.TabIndex = 1;
             this.pickerFechaInicioEstadia.Value = new System.DateTime(2019, 10, 1, 18, 55, 12, 0);
             this.pickerFechaInicioEstadia.ValueChanged += new System.EventHandler(this.pickerFechaInicioEstadia_ValueChanged);
             // 
@@ -243,7 +243,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(470, 552);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrar.TabIndex = 6;
+            this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -253,7 +253,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(551, 552);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -305,7 +305,7 @@
             this.btnQuitarArt.Location = new System.Drawing.Point(223, 397);
             this.btnQuitarArt.Name = "btnQuitarArt";
             this.btnQuitarArt.Size = new System.Drawing.Size(167, 23);
-            this.btnQuitarArt.TabIndex = 12;
+            this.btnQuitarArt.TabIndex = 3;
             this.btnQuitarArt.Text = "Quitar Articulo Seleccionado";
             this.btnQuitarArt.UseVisualStyleBackColor = true;
             this.btnQuitarArt.Click += new System.EventHandler(this.btnQuitarArt_Click);
@@ -315,7 +315,7 @@
             this.btnArticuloAgregar.Location = new System.Drawing.Point(499, 82);
             this.btnArticuloAgregar.Name = "btnArticuloAgregar";
             this.btnArticuloAgregar.Size = new System.Drawing.Size(100, 23);
-            this.btnArticuloAgregar.TabIndex = 12;
+            this.btnArticuloAgregar.TabIndex = 2;
             this.btnArticuloAgregar.Text = "Agregar";
             this.btnArticuloAgregar.UseVisualStyleBackColor = true;
             this.btnArticuloAgregar.Click += new System.EventHandler(this.btnAgregarArt_Click);
@@ -391,7 +391,7 @@
             this.txtArticuloCantidad.Location = new System.Drawing.Point(14, 85);
             this.txtArticuloCantidad.Name = "txtArticuloCantidad";
             this.txtArticuloCantidad.Size = new System.Drawing.Size(100, 20);
-            this.txtArticuloCantidad.TabIndex = 6;
+            this.txtArticuloCantidad.TabIndex = 1;
             this.txtArticuloCantidad.Text = "1";
             this.txtArticuloCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtArticuloCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
@@ -411,7 +411,7 @@
             this.txtIdArticulo.Location = new System.Drawing.Point(14, 39);
             this.txtIdArticulo.Name = "txtIdArticulo";
             this.txtIdArticulo.Size = new System.Drawing.Size(100, 20);
-            this.txtIdArticulo.TabIndex = 6;
+            this.txtIdArticulo.TabIndex = 0;
             this.txtIdArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtIdArticulo.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 

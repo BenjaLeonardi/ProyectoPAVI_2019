@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using SistemaHotelPAV.DataAccessLayer;
 
 namespace SistemaHotelPAV.Entities
 {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SistemaHotelPAV.Formularios;
+using SistemaHotelPAV.GUI;
 
 namespace SistemaHotelPAV.Formularios
 {
@@ -57,6 +57,12 @@ namespace SistemaHotelPAV.Formularios
         {
             frmUsuarios FormUsu = new frmUsuarios();
             FormUsu.ShowDialog();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmFactura FormFactura = new frmFactura();
+            FormFactura.ShowDialog();
         }
     }
 }

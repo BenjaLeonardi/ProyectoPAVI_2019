@@ -403,7 +403,8 @@
             this.txtArticuloNombre.ReadOnly = true;
             this.txtArticuloNombre.Size = new System.Drawing.Size(373, 20);
             this.txtArticuloNombre.TabIndex = 6;
-            this.txtArticuloNombre.Text = "Ingrese un ID de Articulo";
+            this.txtArticuloNombre.Text = "Ingrese un ID de Articulo valido";
+            this.txtArticuloNombre.TextChanged += new System.EventHandler(this.txtArticuloNombre_TextChanged);
             // 
             // txtIdArticulo
             // 

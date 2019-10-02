@@ -11,7 +11,7 @@ namespace SistemaHotelPAV.DataAccessLayer
 {
     class Datos
     {
-        enum ResultadoTransaccion {exito, fracaso}
+        public enum ResultadoTransaccion {exito, fracaso}
 
         private ResultadoTransaccion transactionStatus = ResultadoTransaccion.exito;
         private OleDbConnection conexion = new OleDbConnection();
@@ -33,7 +33,8 @@ namespace SistemaHotelPAV.DataAccessLayer
             conexion.Close();
         }
 
-        public void DesconectarTransaccion() {
+        public ResultadoTransaccion DesconectarTransaccion()
+        {
             if (transactionStatus == ResultadoTransaccion.exito) {
                 mTransaction.Commit();
                 MessageBox.Show("La trasacción resultó con éxito...");
@@ -49,6 +50,7 @@ namespace SistemaHotelPAV.DataAccessLayer
             // Dispose() libera los recursos asociados a la conexón
             conexion.Dispose();
 
+            return transactionStatus;
         }
 
         public DataTable consultar(string consultaSQL) // Data table no esta dentro de OLEDB sino de DATA, es una tabla en memoria con filas y columnas

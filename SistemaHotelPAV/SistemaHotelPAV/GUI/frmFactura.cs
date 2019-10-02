@@ -38,6 +38,8 @@ namespace SistemaHotelPAV.GUI {
             // Deshabilitamos agregar
             HabilitarAdicionDetalle(false);
             HabilitarSetteoCantidad(false);
+            HabilitarRegistroFactura(false);
+            LimpiarCampos();
         }
 
         private void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value)
@@ -102,6 +104,7 @@ namespace SistemaHotelPAV.GUI {
                     txtNroFactura.Text = ultimo_id;
                 }
             }
+            ComprobarRequisitosRegistro();
         }
 
         private void pickerFechaInicioEstadia_ValueChanged(object sender, EventArgs e) 
@@ -126,8 +129,9 @@ namespace SistemaHotelPAV.GUI {
             {
                 txtCliente.Text = estadiaSeleccionada.Rows[0]["apellidos"].ToString() + ", " + estadiaSeleccionada.Rows[0]["nombres"].ToString();
             } else {
-                txtCliente.Text = "No se encontraron estadias";
+                txtCliente.Text = "Seleccione una fecha y un numero de Estadia validos";
             }
+            ComprobarRequisitosRegistro();
         }
 
         private void txtCliente_TextChanged(object sender, EventArgs e) 
@@ -151,7 +155,7 @@ namespace SistemaHotelPAV.GUI {
             } 
             else 
             {
-                txtArticuloNombre.Text = "ID invalido. Ingrese un ID de articulo Valido";
+                txtArticuloNombre.Text = "Ingrese un ID de Articulo valido";
                 HabilitarAdicionDetalle(false);
                 HabilitarSetteoCantidad(false);
             }
@@ -169,6 +173,25 @@ namespace SistemaHotelPAV.GUI {
             if (toggle) {
                 txtArticuloCantidad.Text = "1";
             }
+        }
+
+        void ComprobarRequisitosRegistro()
+        {
+            if(cmbTipoFactura.SelectedIndex != -1 &&
+                estadiaSeleccionada.Rows.Count > 0 &&
+                dgvListaArt.RowCount > 0)
+            {
+                HabilitarRegistroFactura(true);
+            }
+            else
+            {
+                HabilitarRegistroFactura(false);
+            }
+        }
+
+        void HabilitarRegistroFactura(bool toggle)
+        {
+            btnRegistrar.Enabled = toggle;
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e) 
@@ -198,6 +221,8 @@ namespace SistemaHotelPAV.GUI {
                 sum += float.Parse(dgvListaArt.Rows[i].Cells["subtotal"].Value.ToString());
             }
             txtTotal.Text = sum.ToString();
+
+            ComprobarRequisitosRegistro();
         }
 
         void GrabarFactura() 
@@ -229,12 +254,34 @@ namespace SistemaHotelPAV.GUI {
 
         private void btnRegistrar_Click(object sender, EventArgs e) 
         {
+            Datos.ResultadoTransaccion result = Datos.ResultadoTransaccion.fracaso;
             if (dgvListaArt.Rows.Count > 0) {
                 Datos.conectarConTransaccion();
                 GrabarFactura();
                 GrabarDetalle();
-                Datos.DesconectarTransaccion();
+                result = Datos.DesconectarTransaccion();
             }
+            if (result == DataAccessLayer.Datos.ResultadoTransaccion.exito)
+            {
+                LimpiarCampos();
+            }
+        }
+
+        void LimpiarCampos()
+        {
+            cmbTipoFactura.SelectedIndex = -1;
+            txtNroFactura.Text = "";
+            pickerFechaFactura.Value = DateTime.Now;
+            txtNroEstadia.Text = "";
+            txtIdArticulo.Text = "";
+            txtArticuloPrecio.Text = "";
+            dgvListaArt.Rows.Clear();
+            MostrarTotal();
+        }
+
+        private void txtArticuloNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

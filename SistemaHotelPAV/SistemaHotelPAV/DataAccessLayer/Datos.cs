@@ -37,10 +37,10 @@ namespace SistemaHotelPAV.DataAccessLayer
         {
             if (transactionStatus == ResultadoTransaccion.exito) {
                 mTransaction.Commit();
-                MessageBox.Show("La trasacción resultó con éxito...");
+                MessageBox.Show("La transacción resultó con éxito.");
             } else {
                 mTransaction.Rollback();
-                MessageBox.Show("La trasacción no pudo realizarce...");
+                MessageBox.Show("La transacción no pudo realizarse.");
             }
 
             if ((conexion.State == ConnectionState.Open)) {
@@ -110,13 +110,13 @@ namespace SistemaHotelPAV.DataAccessLayer
         }
 
         public void EjecutarSQLConTransaccion(string consulta) {
-            try {
+            //try {
                 comando.CommandType = CommandType.Text;
                 comando.CommandText = consulta;
                 comando.ExecuteNonQuery();
-            } catch {
+            /*} catch {
                 transactionStatus = ResultadoTransaccion.fracaso;
-            }
+            }*/
         }
     }
 }

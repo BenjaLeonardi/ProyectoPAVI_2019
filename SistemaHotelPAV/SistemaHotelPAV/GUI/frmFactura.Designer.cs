@@ -23,14 +23,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTipoFactura = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pickerFechaFactura = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNroEstadia = new System.Windows.Forms.TextBox();
-            this.txtNroFactura = new System.Windows.Forms.TextBox();
             this.pickerFechaInicioEstadia = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
@@ -62,15 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArt)).BeginInit();
             this.gbxDetalleFac.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(142, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Numero de Factura";
             // 
             // label2
             // 
@@ -106,7 +95,7 @@
             this.pickerFechaFactura.Location = new System.Drawing.Point(426, 26);
             this.pickerFechaFactura.Name = "pickerFechaFactura";
             this.pickerFechaFactura.Size = new System.Drawing.Size(200, 20);
-            this.pickerFechaFactura.TabIndex = 3;
+            this.pickerFechaFactura.TabIndex = 1;
             this.pickerFechaFactura.Value = new System.DateTime(2019, 10, 1, 18, 55, 12, 0);
             // 
             // label4
@@ -123,27 +112,17 @@
             this.txtNroEstadia.Location = new System.Drawing.Point(251, 76);
             this.txtNroEstadia.Name = "txtNroEstadia";
             this.txtNroEstadia.Size = new System.Drawing.Size(100, 20);
-            this.txtNroEstadia.TabIndex = 2;
+            this.txtNroEstadia.TabIndex = 3;
             this.txtNroEstadia.Text = "0";
             this.txtNroEstadia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtNroEstadia.TextChanged += new System.EventHandler(this.txtNroEstadia_TextChanged);
-            // 
-            // txtNroFactura
-            // 
-            this.txtNroFactura.Location = new System.Drawing.Point(145, 26);
-            this.txtNroFactura.Name = "txtNroFactura";
-            this.txtNroFactura.ReadOnly = true;
-            this.txtNroFactura.Size = new System.Drawing.Size(100, 20);
-            this.txtNroFactura.TabIndex = 0;
-            this.txtNroFactura.Text = "0";
-            this.txtNroFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // pickerFechaInicioEstadia
             // 
             this.pickerFechaInicioEstadia.Location = new System.Drawing.Point(15, 76);
             this.pickerFechaInicioEstadia.Name = "pickerFechaInicioEstadia";
             this.pickerFechaInicioEstadia.Size = new System.Drawing.Size(230, 20);
-            this.pickerFechaInicioEstadia.TabIndex = 1;
+            this.pickerFechaInicioEstadia.TabIndex = 2;
             this.pickerFechaInicioEstadia.Value = new System.DateTime(2019, 10, 1, 18, 55, 12, 0);
             this.pickerFechaInicioEstadia.ValueChanged += new System.EventHandler(this.pickerFechaInicioEstadia_ValueChanged);
             // 
@@ -162,7 +141,7 @@
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(269, 20);
-            this.txtCliente.TabIndex = 0;
+            this.txtCliente.TabIndex = 6;
             this.txtCliente.Text = "Seleccione una fecha y un numero de Estadia";
             this.txtCliente.TextChanged += new System.EventHandler(this.txtCliente_TextChanged);
             // 
@@ -244,7 +223,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(470, 552);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegistrar.TabIndex = 3;
+            this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -254,7 +233,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(551, 552);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -433,10 +412,8 @@
             this.Controls.Add(this.cmbTipoFactura);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.txtNroEstadia);
-            this.Controls.Add(this.txtNroFactura);
             this.Name = "frmFactura";
             this.Text = "Factura de compra en bar";
             this.Load += new System.EventHandler(this.frmFactura_Load);
@@ -450,14 +427,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbTipoFactura;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker pickerFechaFactura;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNroEstadia;
-        private System.Windows.Forms.TextBox txtNroFactura;
         private System.Windows.Forms.DateTimePicker pickerFechaInicioEstadia;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCliente;

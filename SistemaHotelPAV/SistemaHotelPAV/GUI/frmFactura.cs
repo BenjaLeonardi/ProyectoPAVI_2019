@@ -65,7 +65,7 @@ namespace SistemaHotelPAV.GUI {
                     txtArticuloNombre.Text,
                     articuloSeleccionado.Rows[0]["descripcion"],
                     txtArticuloCantidad.Text,
-                    txtArticuloPrecio.Text,
+                    articuloSeleccionado.Rows[0]["precioUnitario"],
                     subtotal.ToString());
             }
             MostrarTotal();
@@ -94,16 +94,6 @@ namespace SistemaHotelPAV.GUI {
 
         private void cmbTipoFactura_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            if (cmbTipoFactura.SelectedItem != null) {
-                string tipo_seleccionado = cmbTipoFactura.SelectedValue.ToString();
-                // Solo buscamos el ultimo ID si el tipo seleccionado es valido [un numero]
-                int parsed = 0;
-                if (int.TryParse(tipo_seleccionado, out parsed))
-                {
-                    string ultimo_id = (Facturas.GetLastFacturaID(tipo_seleccionado) + 1).ToString();
-                    txtNroFactura.Text = ultimo_id;
-                }
-            }
             ComprobarRequisitosRegistro();
         }
 
@@ -225,41 +215,28 @@ namespace SistemaHotelPAV.GUI {
             ComprobarRequisitosRegistro();
         }
 
-        void GrabarFactura() 
-        {
-            string consulta = "INSERT into Facturas values("
-                + txtNroFactura.Text + ","
-                + cmbTipoFactura.SelectedValue.ToString() + ",'"
-                + pickerFechaFactura.Value.ToString("yyyy'-'MM'-'dd") + "',"
-                + txtNroEstadia.Text + ",'"
-                + pickerFechaInicioEstadia.Value.ToString("yyyy'-'MM'-'dd") + "',"
-                + txtTotal.Text.ToString() + ")";
-
-            Datos.EjecutarSQLConTransaccion(consulta);
-        }
-
-        void GrabarDetalle() 
-        {
-            for (int i = 0; i < dgvListaArt.Rows.Count; i++) 
-            {
-                string consulta = "insert into DetallesFactura values("
-                                                    + txtNroFactura.Text + ","
-                                                    + cmbTipoFactura.SelectedValue.ToString() + ","
-                                                    + dgvListaArt.Rows[i].Cells["id_articulo"].Value.ToString() + ","
-                                                    + dgvListaArt.Rows[i].Cells["cantidad"].Value.ToString() + ","
-                                                    + dgvListaArt.Rows[i].Cells["precioUnitario"].Value.ToString()+ ")";
-                Datos.EjecutarSQLConTransaccion(consulta);
-            }
-        }
-
         private void btnRegistrar_Click(object sender, EventArgs e) 
         {
+            string idFactura = (Facturas.GetLastFacturaID(cmbTipoFactura.SelectedValue.ToString()) + 1).ToString();
+            string tipoFactura = cmbTipoFactura.SelectedValue.ToString();
+
             Datos.ResultadoTransaccion result = Datos.ResultadoTransaccion.fracaso;
             if (dgvListaArt.Rows.Count > 0) {
-                Datos.conectarConTransaccion();
-                GrabarFactura();
-                GrabarDetalle();
-                result = Datos.DesconectarTransaccion();
+                Facturas.IniciarTransaccion();
+                Facturas.GrabarFactura(idFactura, tipoFactura,
+                    pickerFechaFactura.Value.ToString("yyyy'-'MM'-'dd"),
+                    txtNroEstadia.Text,
+                    pickerFechaInicioEstadia.Value.ToString("yyyy'-'MM'-'dd"),
+                    txtTotal.Text.ToString()
+                    );
+                for (int i = 0; i < dgvListaArt.Rows.Count; i++)
+                {
+                    Facturas.GrabarDetalle(idFactura, tipoFactura,
+                        dgvListaArt.Rows[i].Cells["id_articulo"].Value.ToString(),
+                        dgvListaArt.Rows[i].Cells["cantidad"].Value.ToString(),
+                        dgvListaArt.Rows[i].Cells["precioUnitario"].Value.ToString());
+                }
+                result = Facturas.FinalizarTransaccion();
             }
             if (result == DataAccessLayer.Datos.ResultadoTransaccion.exito)
             {
@@ -270,7 +247,6 @@ namespace SistemaHotelPAV.GUI {
         void LimpiarCampos()
         {
             cmbTipoFactura.SelectedIndex = -1;
-            txtNroFactura.Text = "";
             pickerFechaFactura.Value = DateTime.Now;
             txtNroEstadia.Text = "";
             txtIdArticulo.Text = "";

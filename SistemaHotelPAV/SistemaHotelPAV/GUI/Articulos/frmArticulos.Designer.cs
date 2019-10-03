@@ -62,6 +62,7 @@
             this.grdArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdArticulos.Location = new System.Drawing.Point(15, 202);
             this.grdArticulos.Name = "grdArticulos";
+            this.grdArticulos.ReadOnly = true;
             this.grdArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdArticulos.Size = new System.Drawing.Size(559, 259);
             this.grdArticulos.TabIndex = 23;

@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SistemaHotelPAV.GUI;
+using System;
 using System.Windows.Forms;
-using SistemaHotelPAV.GUI;
 
-namespace SistemaHotelPAV.Formularios
-{
+namespace SistemaHotelPAV.Formularios {
     public partial class frmMenuPrincipal : Form
     {
         public frmMenuPrincipal()
@@ -63,6 +55,25 @@ namespace SistemaHotelPAV.Formularios
         {
             frmFactura FormFactura = new frmFactura();
             FormFactura.ShowDialog();
+        }
+
+        private void btnArticulos_Click(object sender, EventArgs e) {
+            frmArticulos FormArt = new frmArticulos();
+            FormArt.ShowDialog();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e) {
+            frmUsuarios FormUsuarios = new frmUsuarios();
+            FormUsuarios.ShowDialog();
+        }
+
+        private void btnFactura_Click(object sender, EventArgs e) {
+            frmFactura FormFactura = new frmFactura();
+            FormFactura.ShowDialog();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

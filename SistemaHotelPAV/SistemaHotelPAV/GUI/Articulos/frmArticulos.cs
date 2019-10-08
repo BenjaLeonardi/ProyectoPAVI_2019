@@ -87,22 +87,11 @@ namespace SistemaHotelPAV.Formularios
                 grdArticulos.Columns[x].HeaderText = "x"; // Ver como se usa esto
             }*/
 
-
-            DataTable tabla = new DataTable();
-            tabla = objDatos.consultarTabla("Tipos");
-            LlenarCombo(cmbTipos, tabla, "nombre", "id_tipo");
-            LlenarCombo(cmbTipo, tabla, "nombre", "id_tipo");
+            objDatos.LlenarCombo(cmbTipos, "Tipos", "nombre", "id_tipo");
+            objDatos.LlenarCombo(cmbTipo, "Tipos", "nombre", "id_tipo");
             
             HabilitarModoEdicion(false);
             HabilitarBotonesInteraccionArticulo(false);
-        }
-
-        private void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value)
-        {
-            cbo.DataSource = tabla;
-            cbo.DisplayMember = display;
-            cbo.ValueMember = value;
-            cbo.SelectedIndex = -1;
         }
 
         private void actualizarCampos(int id)

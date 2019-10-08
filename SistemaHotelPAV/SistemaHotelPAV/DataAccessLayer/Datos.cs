@@ -16,9 +16,9 @@ namespace SistemaHotelPAV.DataAccessLayer
         private ResultadoTransaccion transactionStatus = ResultadoTransaccion.exito;
         private OleDbConnection conexion = new OleDbConnection();
         private OleDbCommand comando = new OleDbCommand();
-        //private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=DESKTOP-2L8MG4Q\SQLEXPRESS;Persist Security Info=True;Integrated Security=SSPI;Initial Catalog=HotelGrandario";
+        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=DESKTOP-2L8MG4Q\SQLEXPRESS;Persist Security Info=True;Integrated Security=SSPI;Initial Catalog=HotelGrandario";
         //private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=DESKTOP-JOO5NDB\SQLEXPRESS;Persist Security Info=True;Integrated Security=SSPI;Initial Catalog=HotelGrandario";
-        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=maquis;Persist Security Info=True;Password=avisuales1;User ID=avisuales1;Initial Catalog=TestLeonardi";
+        //private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=maquis;Persist Security Info=True;Password=avisuales1;User ID=avisuales1;Initial Catalog=TestLeonardi";
 
         private void conectar()
         {
@@ -87,10 +87,11 @@ namespace SistemaHotelPAV.DataAccessLayer
             DataTable tabla = new DataTable();
             string consultaSQL = "SELECT * FROM Usuarios WHERE usuario='" + usuario + "' AND password='" + contrasena + "'";
             tabla = objDatos.consultar(consultaSQL);
-
+            
             if (tabla.Rows.Count > 0)
             {
-                return 1;
+                int user_id = Convert.ToInt32(tabla.Rows[0]["id_usu"]);
+                return user_id;
             }
             else
             {

@@ -29,10 +29,11 @@ namespace SistemaHotelPAV
         {
             Datos objDatos = new Datos();
 
-            if (objDatos.validarUsuarioLogin(txtUsuario.Text, txtContrasena.Text) == 1) //Podemos hacer despues que el usuario se quede guardado, ver despues
+            if (objDatos.validarUsuarioLogin(txtUsuario.Text, txtContrasena.Text) != 0) //Podemos hacer despues que el usuario se quede guardado, ver despues
             {
                 MessageBox.Show("Bienvenido al sistema del Hotel Grandario!", "Bienvenido");
                 frmMenuPrincipal FormMenu = new frmMenuPrincipal();
+                FormMenu.UserID = objDatos.validarUsuarioLogin(txtUsuario.Text, txtContrasena.Text);
                 FormMenu.Show();
                 this.Hide();
             }

@@ -18,6 +18,14 @@ namespace SistemaHotelPAV.Formularios
             InitializeComponent();
         }
 
+        private int userID;
+
+        public int UserID //Propiedad utilizada para contener el ID del usuario
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("El Sistema Grandario esta siendo desarrollado, algunas de sus funciones todavia no estan terminadas!","Atencion!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
@@ -63,6 +71,11 @@ namespace SistemaHotelPAV.Formularios
         {
             frmFactura FormFactura = new frmFactura();
             FormFactura.ShowDialog();
+        }
+
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

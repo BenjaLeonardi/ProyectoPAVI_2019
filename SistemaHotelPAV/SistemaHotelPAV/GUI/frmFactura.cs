@@ -30,7 +30,7 @@ namespace SistemaHotelPAV.GUI {
         private void frmFactura_Load(object sender, EventArgs e)
         {
             tablaTiposFactura = Datos.consultarTabla("TiposFactura");
-            LlenarCombo(cmbTipoFactura, tablaTiposFactura, "descripcion", "id_tipo");
+            Datos.LlenarCombo(cmbTipoFactura, tablaTiposFactura, "descripcion", "id_tipo");
             
             // Setteamos hoy
             pickerFechaFactura.Value = DateTime.Today;
@@ -40,14 +40,6 @@ namespace SistemaHotelPAV.GUI {
             HabilitarSetteoCantidad(false);
             HabilitarRegistroFactura(false);
             LimpiarCampos();
-        }
-
-        private void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value)
-        {
-            cbo.DataSource = tabla;
-            cbo.DisplayMember = display;
-            cbo.ValueMember = value;
-            cbo.SelectedIndex = -1;
         }
 
         private void btnAgregarArt_Click(object sender, EventArgs e) {

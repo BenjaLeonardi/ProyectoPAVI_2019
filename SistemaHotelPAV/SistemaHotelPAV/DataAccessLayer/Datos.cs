@@ -73,6 +73,19 @@ namespace SistemaHotelPAV.DataAccessLayer
             return tabla;
         }
 
+        public void LlenarCombo(ComboBox cbo, string nombreTabla, string display, String value) {
+            DataTable tabla = new DataTable();
+            tabla = consultarTabla(nombreTabla);
+            LlenarCombo(cbo, tabla, display, value);
+        }
+
+        public void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value) {
+            cbo.DataSource = tabla;
+            cbo.DisplayMember = display;
+            cbo.ValueMember = value;
+            cbo.SelectedIndex = -1;
+        }
+
         public void actualizar(string consultaSQL)
         {
             this.conectar();

@@ -46,16 +46,8 @@ namespace SistemaHotelPAV.Formularios
             DataTable tabla = new DataTable();
             tabla = objDatos.consultarTabla("Barrios"); //Aca cargo los barrios al combo cuando empieza todo
 
-            LlenarCombo(cmbBarrio, tabla, "nombre", "id_barrio");
+            objDatos.LlenarCombo(cmbBarrio, tabla, "nombre", "id_barrio");
             habilitar(false);
-        }
-
-        private void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value)
-        {
-            cbo.DataSource = tabla;
-            cbo.DisplayMember = display;
-            cbo.ValueMember = value;
-            cbo.SelectedIndex = -1;
         }
 
         private void actualizarCampos(int id)

@@ -10,7 +10,7 @@ namespace SistemaHotelPAV.Formularios {
             InitializeComponent();
         }
 
-        private int userID;
+        public static int userID;
 
         public int UserID //Propiedad utilizada para contener el ID del usuario
         {
@@ -82,6 +82,11 @@ namespace SistemaHotelPAV.Formularios {
 
         private void btnSalir_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

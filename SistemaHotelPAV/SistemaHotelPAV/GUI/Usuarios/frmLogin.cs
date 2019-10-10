@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SistemaHotelPAV.DataAccessLayer;
 using SistemaHotelPAV.Entities;
 using SistemaHotelPAV.Formularios;
+using SistemaHotelPAV.Clases;
 
 namespace SistemaHotelPAV
 {
@@ -28,12 +29,13 @@ namespace SistemaHotelPAV
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Datos objDatos = new Datos();
+            int idUsuario = objDatos.validarUsuarioLogin(txtUsuario.Text, txtContrasena.Text);
 
-            if (objDatos.validarUsuarioLogin(txtUsuario.Text, txtContrasena.Text) != 0) //Podemos hacer despues que el usuario se quede guardado, ver despues
+            if (idUsuario != 0) //Podemos hacer despues que el usuario se quede guardado, ver despues
             {
                 MessageBox.Show("Bienvenido al sistema del Hotel Grandario!", "Bienvenido");
                 frmMenuPrincipal FormMenu = new frmMenuPrincipal();
-                FormMenu.UserID = objDatos.validarUsuarioLogin(txtUsuario.Text, txtContrasena.Text);
+                Sesion.userID = idUsuario;
                 FormMenu.Show();
                 this.Hide();
             }

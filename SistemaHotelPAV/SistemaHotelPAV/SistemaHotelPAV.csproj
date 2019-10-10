@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Articulo.cs" />
+    <Compile Include="Clases\Sesion.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="DataAccessLayer\ArticuloDA.cs" />
     <Compile Include="DataAccessLayer\Datos.cs" />

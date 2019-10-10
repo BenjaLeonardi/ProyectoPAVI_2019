@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using SistemaHotelPAV.Entities;
 using SistemaHotelPAV.DataAccessLayer;
+using SistemaHotelPAV.Clases;
 
 namespace SistemaHotelPAV.Formularios
 {

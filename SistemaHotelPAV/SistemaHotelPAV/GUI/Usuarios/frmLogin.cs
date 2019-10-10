@@ -35,7 +35,7 @@ namespace SistemaHotelPAV
             {
                 MessageBox.Show("Bienvenido al sistema del Hotel Grandario!", "Bienvenido");
                 frmMenuPrincipal FormMenu = new frmMenuPrincipal();
-                Sesion.userID = idUsuario;
+                Sesion.RecuperarDatos(idUsuario);
                 FormMenu.Show();
                 this.Hide();
             }

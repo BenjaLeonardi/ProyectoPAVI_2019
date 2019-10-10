@@ -82,10 +82,7 @@ namespace SistemaHotelPAV.Formularios {
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
-            UsuarioDA objUser = new UsuarioDA();
-            DataTable tablaDatosUsuario = new DataTable();
-            tablaDatosUsuario = objUser.recuperarUsuarioID(Sesion.userID);
-            stsLabelUser.Text = "Usuario: " + (tablaDatosUsuario.Rows[0]["nombre"]).ToString() + " " + (tablaDatosUsuario.Rows[0]["apellido"]).ToString();
+            stsLabelUser.Text = "Usuario: " + Sesion.UserNombreCompleto;
         }
     }
 }

@@ -1,6 +1,10 @@
 ﻿using SistemaHotelPAV.GUI;
 using System;
 using System.Windows.Forms;
+using SistemaHotelPAV.Entities;
+using SistemaHotelPAV.DataAccessLayer;
+using System.Data;
+using SistemaHotelPAV.Clases;
 
 namespace SistemaHotelPAV.Formularios {
     public partial class frmMenuPrincipal : Form
@@ -8,14 +12,6 @@ namespace SistemaHotelPAV.Formularios {
         public frmMenuPrincipal()
         {
             InitializeComponent();
-        }
-
-        public static int userID;
-
-        public int UserID //Propiedad utilizada para contener el ID del usuario
-        {
-            get { return userID; }
-            set { userID = value; }
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,7 +82,10 @@ namespace SistemaHotelPAV.Formularios {
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            UsuarioDA objUser = new UsuarioDA();
+            DataTable tablaDatosUsuario = new DataTable();
+            tablaDatosUsuario = objUser.recuperarUsuarioID(Sesion.userID);
+            stsLabelUser.Text = "Usuario: " + (tablaDatosUsuario.Rows[0]["nombre"]).ToString() + " " + (tablaDatosUsuario.Rows[0]["apellido"]).ToString();
         }
     }
 }

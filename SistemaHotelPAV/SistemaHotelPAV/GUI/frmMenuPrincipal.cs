@@ -1,6 +1,9 @@
 ﻿using SistemaHotelPAV.GUI;
 using System;
 using System.Windows.Forms;
+using SistemaHotelPAV.Entities;
+using SistemaHotelPAV.DataAccessLayer;
+using System.Data;
 
 namespace SistemaHotelPAV.Formularios {
     public partial class frmMenuPrincipal : Form
@@ -82,6 +85,14 @@ namespace SistemaHotelPAV.Formularios {
 
         private void btnSalir_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            UsuarioDA objUser = new UsuarioDA();
+            DataTable tablaDatosUsuario = new DataTable();
+            tablaDatosUsuario = objUser.recuperarUsuarioID(UserID);
+            stsLabelUser.Text = "Usuario: " + (tablaDatosUsuario.Rows[0]["nombre"]).ToString() + " " + (tablaDatosUsuario.Rows[0]["apellido"]).ToString();
         }
     }
 }

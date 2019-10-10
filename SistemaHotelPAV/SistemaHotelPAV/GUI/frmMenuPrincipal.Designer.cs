@@ -45,6 +45,8 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnFactura = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.stsLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stsTatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +62,8 @@
             // 
             // stsTatus
             // 
+            this.stsTatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stsLabelUser});
             this.stsTatus.Location = new System.Drawing.Point(0, 693);
             this.stsTatus.Name = "stsTatus";
             this.stsTatus.Size = new System.Drawing.Size(1083, 22);
@@ -193,6 +197,12 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // stsLabelUser
+            // 
+            this.stsLabelUser.Name = "stsLabelUser";
+            this.stsLabelUser.Size = new System.Drawing.Size(83, 17);
+            this.stsLabelUser.Text = "NOMBREUSER";
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +221,9 @@
             this.Text = "Sistema Hotel Grandario";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenuPrincipal_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMenuPrincipal_FormClosed);
+            this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
+            this.stsTatus.ResumeLayout(false);
+            this.stsTatus.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -237,5 +250,6 @@
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnFactura;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.ToolStripStatusLabel stsLabelUser;
     }
 }

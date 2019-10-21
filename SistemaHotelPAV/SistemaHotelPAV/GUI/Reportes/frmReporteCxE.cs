@@ -19,6 +19,8 @@ namespace SistemaHotelPAV.GUI.Reportes
 
         private void frmReporteCxE_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dsReporteClienteEstadia.dtClienteEstadia' Puede moverla o quitarla según sea necesario.
+            this.dtClienteEstadiaTA.Fill(this.dsReporteClienteEstadia.dtClienteEstadia);
 
             this.reportViewer1.RefreshReport();
         }

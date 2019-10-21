@@ -5,6 +5,7 @@ using SistemaHotelPAV.Entities;
 using SistemaHotelPAV.DataAccessLayer;
 using System.Data;
 using SistemaHotelPAV.Clases;
+using SistemaHotelPAV.GUI.Reportes;
 
 namespace SistemaHotelPAV.Formularios {
     public partial class frmMenuPrincipal : Form
@@ -83,6 +84,18 @@ namespace SistemaHotelPAV.Formularios {
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             stsLabelUser.Text = "Usuario: " + Sesion.UserNombreCompleto;
+        }
+
+        private void clientesPorEstadiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteCxE FormCxE = new frmReporteCxE();
+            FormCxE.ShowDialog();
+        }
+
+        private void usuariosPorBarriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteUxB FormUxB = new frmReporteUxB();
+            FormUxB.ShowDialog();
         }
     }
 }

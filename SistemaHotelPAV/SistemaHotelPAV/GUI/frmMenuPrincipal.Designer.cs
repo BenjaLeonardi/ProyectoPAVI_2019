@@ -30,6 +30,7 @@
         {
             this.lblMenu = new System.Windows.Forms.Label();
             this.stsTatus = new System.Windows.Forms.StatusStrip();
+            this.stsLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,9 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnFactura = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.stsLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesPorEstadiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosPorBarriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stsTatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,10 +73,17 @@
             this.stsTatus.TabIndex = 1;
             this.stsTatus.Text = "statusStrip1";
             // 
+            // stsLabelUser
+            // 
+            this.stsLabelUser.Name = "stsLabelUser";
+            this.stsLabelUser.Size = new System.Drawing.Size(83, 17);
+            this.stsLabelUser.Text = "NOMBREUSER";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
+            this.toolStripMenuItem3,
             this.opcionesToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -197,11 +207,28 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // stsLabelUser
+            // toolStripMenuItem3
             // 
-            this.stsLabelUser.Name = "stsLabelUser";
-            this.stsLabelUser.Size = new System.Drawing.Size(83, 17);
-            this.stsLabelUser.Text = "NOMBREUSER";
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesPorEstadiasToolStripMenuItem,
+            this.usuariosPorBarriosToolStripMenuItem});
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(65, 20);
+            this.toolStripMenuItem3.Text = "Reportes";
+            // 
+            // clientesPorEstadiasToolStripMenuItem
+            // 
+            this.clientesPorEstadiasToolStripMenuItem.Name = "clientesPorEstadiasToolStripMenuItem";
+            this.clientesPorEstadiasToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.clientesPorEstadiasToolStripMenuItem.Text = "Clientes por Estadias";
+            this.clientesPorEstadiasToolStripMenuItem.Click += new System.EventHandler(this.clientesPorEstadiasToolStripMenuItem_Click);
+            // 
+            // usuariosPorBarriosToolStripMenuItem
+            // 
+            this.usuariosPorBarriosToolStripMenuItem.Name = "usuariosPorBarriosToolStripMenuItem";
+            this.usuariosPorBarriosToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.usuariosPorBarriosToolStripMenuItem.Text = "Usuarios por Barrios";
+            this.usuariosPorBarriosToolStripMenuItem.Click += new System.EventHandler(this.usuariosPorBarriosToolStripMenuItem_Click);
             // 
             // frmMenuPrincipal
             // 
@@ -251,5 +278,8 @@
         private System.Windows.Forms.Button btnFactura;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStripStatusLabel stsLabelUser;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem clientesPorEstadiasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosPorBarriosToolStripMenuItem;
     }
 }

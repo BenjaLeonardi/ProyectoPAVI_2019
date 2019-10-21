@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReporteClienteEstadia" targetNamespace="http://tempuri.org/dsReporteClienteEstadia.xsd" xmlns:mstns="http://tempuri.org/dsReporteClienteEstadia.xsd" xmlns="http://tempuri.org/dsReporteClienteEstadia.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConexionGrandario" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConexionGrandario (Settings)" PropertyReference="ApplicationSettings.SistemaHotelPAV.Properties.Settings.GlobalReference.Default.ConexionGrandario" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtClienteEstadiaTA" GeneratorDataComponentClassName="dtClienteEstadiaTA" Name="dtClienteEstadia" UserDataComponentName="dtClienteEstadiaTA">
+            <MainSource>
+              <DbSource ConnectionRef="ConexionGrandario (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Clientes.id_cliente, Estadias.nro_estadia, Estadias.fecha_inicio, Estadias.nro_habitacion, Estadias.cant_huespedes, Clientes.apellidos, Clientes.nro_dni
+FROM            Clientes INNER JOIN
+                         Estadias ON Clientes.id_cliente = Estadias.id_cliente</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_cliente" DataSetColumn="id_cliente" />
+              <Mapping SourceColumn="nro_estadia" DataSetColumn="nro_estadia" />
+              <Mapping SourceColumn="fecha_inicio" DataSetColumn="fecha_inicio" />
+              <Mapping SourceColumn="nro_habitacion" DataSetColumn="nro_habitacion" />
+              <Mapping SourceColumn="cant_huespedes" DataSetColumn="cant_huespedes" />
+              <Mapping SourceColumn="apellidos" DataSetColumn="apellidos" />
+              <Mapping SourceColumn="nro_dni" DataSetColumn="nro_dni" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReporteClienteEstadia" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReporteClienteEstadia" msprop:Generator_UserDSName="dsReporteClienteEstadia">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtClienteEstadia" msprop:Generator_TableClassName="dtClienteEstadiaDataTable" msprop:Generator_TableVarName="tabledtClienteEstadia" msprop:Generator_TablePropName="dtClienteEstadia" msprop:Generator_RowDeletingName="dtClienteEstadiaRowDeleting" msprop:Generator_RowChangingName="dtClienteEstadiaRowChanging" msprop:Generator_RowEvHandlerName="dtClienteEstadiaRowChangeEventHandler" msprop:Generator_RowDeletedName="dtClienteEstadiaRowDeleted" msprop:Generator_UserTableName="dtClienteEstadia" msprop:Generator_RowChangedName="dtClienteEstadiaRowChanged" msprop:Generator_RowEvArgName="dtClienteEstadiaRowChangeEvent" msprop:Generator_RowClassName="dtClienteEstadiaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_cliente" msprop:Generator_ColumnVarNameInTable="columnid_cliente" msprop:Generator_ColumnPropNameInRow="id_cliente" msprop:Generator_ColumnPropNameInTable="id_clienteColumn" msprop:Generator_UserColumnName="id_cliente" type="xs:int" />
+              <xs:element name="nro_estadia" msprop:Generator_ColumnVarNameInTable="columnnro_estadia" msprop:Generator_ColumnPropNameInRow="nro_estadia" msprop:Generator_ColumnPropNameInTable="nro_estadiaColumn" msprop:Generator_UserColumnName="nro_estadia" type="xs:int" />
+              <xs:element name="fecha_inicio" msprop:Generator_ColumnVarNameInTable="columnfecha_inicio" msprop:Generator_ColumnPropNameInRow="fecha_inicio" msprop:Generator_ColumnPropNameInTable="fecha_inicioColumn" msprop:Generator_UserColumnName="fecha_inicio" type="xs:dateTime" />
+              <xs:element name="nro_habitacion" msprop:Generator_ColumnVarNameInTable="columnnro_habitacion" msprop:Generator_ColumnPropNameInRow="nro_habitacion" msprop:Generator_ColumnPropNameInTable="nro_habitacionColumn" msprop:Generator_UserColumnName="nro_habitacion" type="xs:int" />
+              <xs:element name="cant_huespedes" msprop:Generator_ColumnVarNameInTable="columncant_huespedes" msprop:Generator_ColumnPropNameInRow="cant_huespedes" msprop:Generator_ColumnPropNameInTable="cant_huespedesColumn" msprop:Generator_UserColumnName="cant_huespedes" type="xs:int" />
+              <xs:element name="apellidos" msprop:Generator_ColumnVarNameInTable="columnapellidos" msprop:Generator_ColumnPropNameInRow="apellidos" msprop:Generator_ColumnPropNameInTable="apellidosColumn" msprop:Generator_UserColumnName="apellidos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nro_dni" msprop:Generator_ColumnVarNameInTable="columnnro_dni" msprop:Generator_ColumnPropNameInRow="nro_dni" msprop:Generator_ColumnPropNameInTable="nro_dniColumn" msprop:Generator_UserColumnName="nro_dni" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dtClienteEstadia" />
+      <xs:field xpath="mstns:id_cliente" />
+      <xs:field xpath="mstns:nro_estadia" />
+      <xs:field xpath="mstns:fecha_inicio" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

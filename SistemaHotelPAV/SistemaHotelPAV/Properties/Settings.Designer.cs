@@ -33,5 +33,16 @@ namespace SistemaHotelPAV.Properties {
                 return ((string)(this["ConexionGrandario"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-JOO5NDB\\SQLEXPRESS;Initial Catalog=HotelGrandario;Integrated " +
+            "Security=True")]
+        public string HotelGrandarioDESKTOPJOO5N {
+            get {
+                return ((string)(this["HotelGrandarioDESKTOPJOO5N"]));
+            }
+        }
     }
 }

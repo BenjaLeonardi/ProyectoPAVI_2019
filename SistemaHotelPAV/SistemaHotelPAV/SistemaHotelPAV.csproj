@@ -83,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsUsuarioBarrio.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsFacturasDetallesFacturaArticulos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFacturasDetallesFacturaArticulos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Articulos\frmDetalleArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +99,12 @@
     </Compile>
     <Compile Include="GUI\frmFactura.Designer.cs">
       <DependentUpon>frmFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reportes\frmReporteArticuloFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reportes\frmReporteArticuloFactura.Designer.cs">
+      <DependentUpon>frmReporteArticuloFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Reportes\frmReporteCxE.cs">
       <SubType>Form</SubType>
@@ -143,12 +154,16 @@
     <EmbeddedResource Include="GUI\frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reportes\frmReporteArticuloFactura.resx">
+      <DependentUpon>frmReporteArticuloFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reportes\frmReporteCxE.resx">
       <DependentUpon>frmReporteCxE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reportes\frmReporteUxB.resx">
       <DependentUpon>frmReporteUxB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reportes\rptFacturaArticulo.rdlc" />
     <EmbeddedResource Include="GUI\Reportes\rptClienteEstadia.rdlc" />
     <EmbeddedResource Include="GUI\Reportes\rptUsuarioBarrio.rdlc" />
     <EmbeddedResource Include="GUI\Usuarios\frmLogin.resx">
@@ -190,6 +205,17 @@
     </None>
     <None Include="dsUsuarioBarrio.xss">
       <DependentUpon>dsUsuarioBarrio.xsd</DependentUpon>
+    </None>
+    <None Include="dsFacturasDetallesFacturaArticulos.xsc">
+      <DependentUpon>dsFacturasDetallesFacturaArticulos.xsd</DependentUpon>
+    </None>
+    <None Include="dsFacturasDetallesFacturaArticulos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFacturasDetallesFacturaArticulos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsFacturasDetallesFacturaArticulos.xss">
+      <DependentUpon>dsFacturasDetallesFacturaArticulos.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -97,5 +97,10 @@ namespace SistemaHotelPAV.Formularios {
             frmReporteUxB FormUxB = new frmReporteUxB();
             FormUxB.ShowDialog();
         }
+
+        private void articulosPorFacturaToolStripMenuItem_Click(object sender, EventArgs e) {
+            frmReporteArticuloFactura formReporteArticuloFactura = new frmReporteArticuloFactura();
+            formReporteArticuloFactura.ShowDialog();
+        }
     }
 }

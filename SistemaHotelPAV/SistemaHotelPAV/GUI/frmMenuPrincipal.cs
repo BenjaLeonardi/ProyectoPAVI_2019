@@ -102,5 +102,10 @@ namespace SistemaHotelPAV.Formularios {
             frmReporteArticuloFactura formReporteArticuloFactura = new frmReporteArticuloFactura();
             formReporteArticuloFactura.ShowDialog();
         }
+
+        private void vehiculosPorClienteToolStripMenuItem_Click(object sender, EventArgs e) {
+            frmReporteVehiculoCliente FormReporteVehiculoCliente = new frmReporteVehiculoCliente();
+            FormReporteVehiculoCliente.ShowDialog();
+        }
     }
 }

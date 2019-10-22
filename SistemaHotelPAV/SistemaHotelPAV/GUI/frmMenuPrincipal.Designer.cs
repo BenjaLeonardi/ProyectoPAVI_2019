@@ -40,6 +40,7 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesPorEstadiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosPorBarriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.articulosPorFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,7 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnFactura = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.articulosPorFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiculosPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stsTatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -137,7 +138,8 @@
             this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientesPorEstadiasToolStripMenuItem,
             this.usuariosPorBarriosToolStripMenuItem,
-            this.articulosPorFacturaToolStripMenuItem});
+            this.articulosPorFacturaToolStripMenuItem,
+            this.vehiculosPorClienteToolStripMenuItem});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(65, 20);
             this.toolStripMenuItem3.Text = "Reportes";
@@ -145,16 +147,23 @@
             // clientesPorEstadiasToolStripMenuItem
             // 
             this.clientesPorEstadiasToolStripMenuItem.Name = "clientesPorEstadiasToolStripMenuItem";
-            this.clientesPorEstadiasToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.clientesPorEstadiasToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.clientesPorEstadiasToolStripMenuItem.Text = "Clientes por Estadias";
             this.clientesPorEstadiasToolStripMenuItem.Click += new System.EventHandler(this.clientesPorEstadiasToolStripMenuItem_Click);
             // 
             // usuariosPorBarriosToolStripMenuItem
             // 
             this.usuariosPorBarriosToolStripMenuItem.Name = "usuariosPorBarriosToolStripMenuItem";
-            this.usuariosPorBarriosToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.usuariosPorBarriosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.usuariosPorBarriosToolStripMenuItem.Text = "Usuarios por Barrios";
             this.usuariosPorBarriosToolStripMenuItem.Click += new System.EventHandler(this.usuariosPorBarriosToolStripMenuItem_Click);
+            // 
+            // articulosPorFacturaToolStripMenuItem
+            // 
+            this.articulosPorFacturaToolStripMenuItem.Name = "articulosPorFacturaToolStripMenuItem";
+            this.articulosPorFacturaToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.articulosPorFacturaToolStripMenuItem.Text = "Articulos por Factura";
+            this.articulosPorFacturaToolStripMenuItem.Click += new System.EventHandler(this.articulosPorFacturaToolStripMenuItem_Click);
             // 
             // opcionesToolStripMenuItem
             // 
@@ -232,12 +241,12 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // articulosPorFacturaToolStripMenuItem
+            // vehiculosPorClienteToolStripMenuItem
             // 
-            this.articulosPorFacturaToolStripMenuItem.Name = "articulosPorFacturaToolStripMenuItem";
-            this.articulosPorFacturaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.articulosPorFacturaToolStripMenuItem.Text = "Articulos por Factura";
-            this.articulosPorFacturaToolStripMenuItem.Click += new System.EventHandler(this.articulosPorFacturaToolStripMenuItem_Click);
+            this.vehiculosPorClienteToolStripMenuItem.Name = "vehiculosPorClienteToolStripMenuItem";
+            this.vehiculosPorClienteToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.vehiculosPorClienteToolStripMenuItem.Text = "Vehiculos por Cliente";
+            this.vehiculosPorClienteToolStripMenuItem.Click += new System.EventHandler(this.vehiculosPorClienteToolStripMenuItem_Click);
             // 
             // frmMenuPrincipal
             // 
@@ -291,5 +300,6 @@
         private System.Windows.Forms.ToolStripMenuItem clientesPorEstadiasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosPorBarriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem articulosPorFacturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehiculosPorClienteToolStripMenuItem;
     }
 }

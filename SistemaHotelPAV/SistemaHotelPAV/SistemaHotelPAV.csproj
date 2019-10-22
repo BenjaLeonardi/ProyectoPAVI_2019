@@ -73,6 +73,14 @@
     <Compile Include="DataAccessLayer\EstadiaDA.cs" />
     <Compile Include="DataAccessLayer\FacturaDA.cs" />
     <Compile Include="DataAccessLayer\UsuarioDA.cs" />
+    <Compile Include="dsClienteVehiculo.cs">
+      <DependentUpon>dsClienteVehiculo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsClienteVehiculo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsClienteVehiculo.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsReporteClienteEstadia.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,6 +125,12 @@
     </Compile>
     <Compile Include="GUI\Reportes\frmReporteUxB.Designer.cs">
       <DependentUpon>frmReporteUxB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reportes\frmReporteVehiculoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reportes\frmReporteVehiculoCliente.Designer.cs">
+      <DependentUpon>frmReporteVehiculoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Usuarios\frmLogin.cs">
       <SubType>Form</SubType>
@@ -163,6 +177,10 @@
     <EmbeddedResource Include="GUI\Reportes\frmReporteUxB.resx">
       <DependentUpon>frmReporteUxB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reportes\frmReporteVehiculoCliente.resx">
+      <DependentUpon>frmReporteVehiculoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reportes\rptClienteVehiculo.rdlc" />
     <EmbeddedResource Include="GUI\Reportes\rptFacturaArticulo.rdlc" />
     <EmbeddedResource Include="GUI\Reportes\rptClienteEstadia.rdlc" />
     <EmbeddedResource Include="GUI\Reportes\rptUsuarioBarrio.rdlc" />
@@ -184,6 +202,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="dsClienteVehiculo.xsc">
+      <DependentUpon>dsClienteVehiculo.xsd</DependentUpon>
+    </None>
+    <None Include="dsClienteVehiculo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsClienteVehiculo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsClienteVehiculo.xss">
+      <DependentUpon>dsClienteVehiculo.xsd</DependentUpon>
+    </None>
     <None Include="dsReporteClienteEstadia.xsc">
       <DependentUpon>dsReporteClienteEstadia.xsd</DependentUpon>
     </None>

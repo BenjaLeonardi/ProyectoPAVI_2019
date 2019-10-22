@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FacturasDetallesFacturaArticulos" targetNamespace="http://tempuri.org/FacturasDetallesFacturaArticulos.xsd" xmlns:mstns="http://tempuri.org/FacturasDetallesFacturaArticulos.xsd" xmlns="http://tempuri.org/FacturasDetallesFacturaArticulos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HotelGrandarioDESKTOPJOO5N" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HotelGrandarioDESKTOPJOO5N (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SistemaHotelPAV.Properties.Settings.GlobalReference.Default.HotelGrandarioDESKTOPJOO5N" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtFacturasArticulosTableAdapter" GeneratorDataComponentClassName="dtFacturasArticulosTableAdapter" Name="dtFacturasArticulos" UserDataComponentName="dtFacturasArticulosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HotelGrandarioDESKTOPJOO5N (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Facturas.fecha_factura, TiposFactura.descripcion, Facturas.id_factura, Tipos.nombre, DetallesFactura.id_articulo, Articulos.nombre, DetallesFactura.precio_historico, DetallesFactura.cantidad
+FROM            Articulos INNER JOIN
+                         DetallesFactura ON Articulos.id_art = DetallesFactura.id_articulo INNER JOIN
+                         Facturas ON DetallesFactura.nro_factura = Facturas.id_factura INNER JOIN
+                         TiposFactura ON Facturas.tipo_factura = TiposFactura.id_tipo INNER JOIN
+                         Tipos ON Articulos.id_tipo = Tipos.id_tipo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="fecha_factura" DataSetColumn="fecha_factura" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="id_factura" DataSetColumn="id_factura" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="id_articulo" DataSetColumn="id_articulo" />
+              <Mapping SourceColumn="nombre1" DataSetColumn="nombre1" />
+              <Mapping SourceColumn="precio_historico" DataSetColumn="precio_historico" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FacturasDetallesFacturaArticulos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FacturasDetallesFacturaArticulos" msprop:Generator_UserDSName="FacturasDetallesFacturaArticulos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtFacturasArticulos" msprop:Generator_TableClassName="dtFacturasArticulosDataTable" msprop:Generator_TableVarName="tabledtFacturasArticulos" msprop:Generator_TablePropName="dtFacturasArticulos" msprop:Generator_RowDeletingName="dtFacturasArticulosRowDeleting" msprop:Generator_RowChangingName="dtFacturasArticulosRowChanging" msprop:Generator_RowEvHandlerName="dtFacturasArticulosRowChangeEventHandler" msprop:Generator_RowDeletedName="dtFacturasArticulosRowDeleted" msprop:Generator_UserTableName="dtFacturasArticulos" msprop:Generator_RowChangedName="dtFacturasArticulosRowChanged" msprop:Generator_RowEvArgName="dtFacturasArticulosRowChangeEvent" msprop:Generator_RowClassName="dtFacturasArticulosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fecha_factura" msprop:Generator_ColumnVarNameInTable="columnfecha_factura" msprop:Generator_ColumnPropNameInRow="fecha_factura" msprop:Generator_ColumnPropNameInTable="fecha_facturaColumn" msprop:Generator_UserColumnName="fecha_factura" type="xs:dateTime" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_factura" msprop:Generator_ColumnVarNameInTable="columnid_factura" msprop:Generator_ColumnPropNameInRow="id_factura" msprop:Generator_ColumnPropNameInTable="id_facturaColumn" msprop:Generator_UserColumnName="id_factura" type="xs:int" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_articulo" msprop:Generator_ColumnVarNameInTable="columnid_articulo" msprop:Generator_ColumnPropNameInRow="id_articulo" msprop:Generator_ColumnPropNameInTable="id_articuloColumn" msprop:Generator_UserColumnName="id_articulo" type="xs:int" />
+              <xs:element name="nombre1" msprop:Generator_ColumnVarNameInTable="columnnombre1" msprop:Generator_ColumnPropNameInRow="nombre1" msprop:Generator_ColumnPropNameInTable="nombre1Column" msprop:Generator_UserColumnName="nombre1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="precio_historico" msprop:Generator_ColumnVarNameInTable="columnprecio_historico" msprop:Generator_ColumnPropNameInRow="precio_historico" msprop:Generator_ColumnPropNameInTable="precio_historicoColumn" msprop:Generator_UserColumnName="precio_historico" type="xs:int" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

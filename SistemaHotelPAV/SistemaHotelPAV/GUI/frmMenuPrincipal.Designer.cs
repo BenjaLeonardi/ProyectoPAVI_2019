@@ -41,6 +41,7 @@
             this.clientesPorEstadiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosPorBarriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articulosPorFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiculosPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,7 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnFactura = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.vehiculosPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadosEstadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stsTatus.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -139,7 +140,8 @@
             this.clientesPorEstadiasToolStripMenuItem,
             this.usuariosPorBarriosToolStripMenuItem,
             this.articulosPorFacturaToolStripMenuItem,
-            this.vehiculosPorClienteToolStripMenuItem});
+            this.vehiculosPorClienteToolStripMenuItem,
+            this.listadosEstadisticasToolStripMenuItem});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(65, 20);
             this.toolStripMenuItem3.Text = "Reportes";
@@ -164,6 +166,13 @@
             this.articulosPorFacturaToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.articulosPorFacturaToolStripMenuItem.Text = "Articulos por Factura";
             this.articulosPorFacturaToolStripMenuItem.Click += new System.EventHandler(this.articulosPorFacturaToolStripMenuItem_Click);
+            // 
+            // vehiculosPorClienteToolStripMenuItem
+            // 
+            this.vehiculosPorClienteToolStripMenuItem.Name = "vehiculosPorClienteToolStripMenuItem";
+            this.vehiculosPorClienteToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.vehiculosPorClienteToolStripMenuItem.Text = "Vehiculos por Cliente";
+            this.vehiculosPorClienteToolStripMenuItem.Click += new System.EventHandler(this.vehiculosPorClienteToolStripMenuItem_Click);
             // 
             // opcionesToolStripMenuItem
             // 
@@ -241,12 +250,12 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // vehiculosPorClienteToolStripMenuItem
+            // listadosEstadisticasToolStripMenuItem
             // 
-            this.vehiculosPorClienteToolStripMenuItem.Name = "vehiculosPorClienteToolStripMenuItem";
-            this.vehiculosPorClienteToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.vehiculosPorClienteToolStripMenuItem.Text = "Vehiculos por Cliente";
-            this.vehiculosPorClienteToolStripMenuItem.Click += new System.EventHandler(this.vehiculosPorClienteToolStripMenuItem_Click);
+            this.listadosEstadisticasToolStripMenuItem.Name = "listadosEstadisticasToolStripMenuItem";
+            this.listadosEstadisticasToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.listadosEstadisticasToolStripMenuItem.Text = "Listados/Estadisticas";
+            this.listadosEstadisticasToolStripMenuItem.Click += new System.EventHandler(this.listadosEstadisticasToolStripMenuItem_Click);
             // 
             // frmMenuPrincipal
             // 
@@ -301,5 +310,6 @@
         private System.Windows.Forms.ToolStripMenuItem usuariosPorBarriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem articulosPorFacturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehiculosPorClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listadosEstadisticasToolStripMenuItem;
     }
 }

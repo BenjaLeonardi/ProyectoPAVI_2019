@@ -6,6 +6,7 @@ using SistemaHotelPAV.DataAccessLayer;
 using System.Data;
 using SistemaHotelPAV.Clases;
 using SistemaHotelPAV.GUI.Reportes;
+using SistemaHotelPAV.GUI.Estadisticas;
 
 namespace SistemaHotelPAV.Formularios {
     public partial class frmMenuPrincipal : Form
@@ -106,6 +107,12 @@ namespace SistemaHotelPAV.Formularios {
         private void vehiculosPorClienteToolStripMenuItem_Click(object sender, EventArgs e) {
             frmReporteVehiculoCliente FormReporteVehiculoCliente = new frmReporteVehiculoCliente();
             FormReporteVehiculoCliente.ShowDialog();
+        }
+
+        private void listadosEstadisticasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEstadisticasXUsuario FormEstadistica = new frmEstadisticasXUsuario();
+            FormEstadistica.ShowDialog();
         }
     }
 }

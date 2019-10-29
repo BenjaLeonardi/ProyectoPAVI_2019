@@ -73,13 +73,22 @@ namespace SistemaHotelPAV.DataAccessLayer
             return tabla;
         }
 
-        public void LlenarCombo(ComboBox cbo, string nombreTabla, string display, String value) {
+        public void LlenarCombo(ComboBox cbo, string nombreTabla, string display, String value, string defaultOption = null) {
             DataTable tabla = new DataTable();
             tabla = consultarTabla(nombreTabla);
-            LlenarCombo(cbo, tabla, display, value);
+            LlenarCombo(cbo, tabla, display, value, defaultOption);
         }
 
-        public void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value) {
+        public void LlenarCombo(ComboBox cbo, DataTable tabla, string display, String value, string defaultOption=null) {
+            // Añadimos una opcion arriba del todo, con valor -1
+            if (defaultOption != null) {
+                DataRow def = tabla.NewRow();
+                // Copiamos la primera fila, para tener todos los campos
+                def.ItemArray = tabla.Rows[0].ItemArray;
+                def[display] = defaultOption;
+                def[value] = "-1";
+                tabla.Rows.InsertAt(def, 0);
+            }
             cbo.DataSource = tabla;
             cbo.DisplayMember = display;
             cbo.ValueMember = value;

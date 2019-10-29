@@ -39,6 +39,8 @@
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvEstadistica = new System.Windows.Forms.DataGridView();
+            this.rdbArticulos = new System.Windows.Forms.RadioButton();
+            this.rdbExtra = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadistica)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +48,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(15, 12);
+            this.lblUsuario.Location = new System.Drawing.Point(237, 12);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 0;
@@ -55,18 +57,20 @@
             // cboUsuario
             // 
             this.cboUsuario.FormattingEnabled = true;
-            this.cboUsuario.Location = new System.Drawing.Point(18, 28);
+            this.cboUsuario.Location = new System.Drawing.Point(240, 28);
             this.cboUsuario.Name = "cboUsuario";
-            this.cboUsuario.Size = new System.Drawing.Size(177, 21);
+            this.cboUsuario.Size = new System.Drawing.Size(210, 21);
             this.cboUsuario.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdbExtra);
+            this.groupBox1.Controls.Add(this.rdbArticulos);
             this.groupBox1.Controls.Add(this.rdbFacturas);
             this.groupBox1.Controls.Add(this.rdbEstadias);
-            this.groupBox1.Location = new System.Drawing.Point(18, 70);
+            this.groupBox1.Location = new System.Drawing.Point(18, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 79);
+            this.groupBox1.Size = new System.Drawing.Size(177, 129);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione Filtro";
@@ -74,7 +78,7 @@
             // rdbFacturas
             // 
             this.rdbFacturas.AutoSize = true;
-            this.rdbFacturas.Location = new System.Drawing.Point(43, 45);
+            this.rdbFacturas.Location = new System.Drawing.Point(13, 45);
             this.rdbFacturas.Name = "rdbFacturas";
             this.rdbFacturas.Size = new System.Drawing.Size(85, 17);
             this.rdbFacturas.TabIndex = 1;
@@ -85,7 +89,7 @@
             // rdbEstadias
             // 
             this.rdbEstadias.AutoSize = true;
-            this.rdbEstadias.Location = new System.Drawing.Point(43, 22);
+            this.rdbEstadias.Location = new System.Drawing.Point(13, 22);
             this.rdbEstadias.Name = "rdbEstadias";
             this.rdbEstadias.Size = new System.Drawing.Size(84, 17);
             this.rdbEstadias.TabIndex = 0;
@@ -96,7 +100,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(237, 12);
+            this.label2.Location = new System.Drawing.Point(237, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 3;
@@ -105,7 +109,7 @@
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(240, 28);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(240, 77);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(98, 20);
             this.dtpFechaDesde.TabIndex = 4;
@@ -113,7 +117,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(237, 64);
+            this.label3.Location = new System.Drawing.Point(349, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 3;
@@ -122,14 +126,14 @@
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(240, 80);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(352, 77);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(98, 20);
             this.dtpFechaHasta.TabIndex = 4;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(250, 118);
+            this.btnBuscar.Location = new System.Drawing.Point(375, 118);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 6;
@@ -146,6 +150,30 @@
             this.dgvEstadistica.ReadOnly = true;
             this.dgvEstadistica.Size = new System.Drawing.Size(625, 338);
             this.dgvEstadistica.TabIndex = 7;
+            // 
+            // rdbArticulos
+            // 
+            this.rdbArticulos.AutoSize = true;
+            this.rdbArticulos.Location = new System.Drawing.Point(13, 68);
+            this.rdbArticulos.Name = "rdbArticulos";
+            this.rdbArticulos.Size = new System.Drawing.Size(133, 17);
+            this.rdbArticulos.TabIndex = 1;
+            this.rdbArticulos.TabStop = true;
+            this.rdbArticulos.Text = "Articulos mas vendidos";
+            this.rdbArticulos.UseVisualStyleBackColor = true;
+            this.rdbArticulos.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // rdbExtra
+            // 
+            this.rdbExtra.AutoSize = true;
+            this.rdbExtra.Location = new System.Drawing.Point(13, 91);
+            this.rdbExtra.Name = "rdbExtra";
+            this.rdbExtra.Size = new System.Drawing.Size(72, 17);
+            this.rdbExtra.TabIndex = 1;
+            this.rdbExtra.TabStop = true;
+            this.rdbExtra.Text = "Facturas?";
+            this.rdbExtra.UseVisualStyleBackColor = true;
+            this.rdbExtra.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // frmEstadisticasXUsuario
             // 
@@ -185,5 +213,7 @@
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvEstadistica;
+        private System.Windows.Forms.RadioButton rdbArticulos;
+        private System.Windows.Forms.RadioButton rdbExtra;
     }
 }

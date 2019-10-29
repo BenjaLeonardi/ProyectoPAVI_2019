@@ -24,6 +24,7 @@ namespace SistemaHotelPAV.GUI.Estadisticas
         {
             objDatos.LlenarCombo(cboUsuario, "Usuarios", "usuario", "id_usu", "<<Todos>>");
             cboUsuario.SelectedIndex = 0;
+            cmbPeriodo.SelectedIndex = 0;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -42,18 +43,24 @@ namespace SistemaHotelPAV.GUI.Estadisticas
 
             if (rdbEstadias.Checked) {
                 consulta = "SELECT Usuarios.usuario, Estadias.nro_estadia, Estadias.fecha_inicio, Estadias.fecha_fun, Estadias.cant_huespedes, Estadias.nro_habitacion " +
-                    "FROM Usuarios JOIN Estadias ON Usuarios.id_usu=Estadias.id_usu " +
-                    "WHERE (Estadias.fecha_inicio BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                    "FROM Usuarios JOIN Estadias ON Usuarios.id_usu=Estadias.id_usu ";
+                if (cmbPeriodo.SelectedIndex != 0) {
+                    consulta += "WHERE (Estadias.fecha_inicio BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                }
             } else if (rdbFacturas.Checked) {
                 consulta = "SELECT Usuarios.usuario, Facturas.id_factura, Facturas.tipo_factura, Facturas.fecha_factura, Facturas.total " +
-                    "FROM Usuarios JOIN Facturas ON Usuarios.id_usu=Facturas.id_usu " +
-                    "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                    "FROM Usuarios JOIN Facturas ON Usuarios.id_usu=Facturas.id_usu ";
+                if (cmbPeriodo.SelectedIndex != 0) {
+                    consulta += "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                }
             } else if (rdbArticulos.Checked) {
                 consulta = "SELECT Articulos.id_art, Articulos.nombre, Tipos.nombre AS Tipo, SUM(DetallesFactura.cantidad) AS Cantidad " +
                     "FROM Usuarios INNER JOIN Facturas ON Usuarios.id_usu=Facturas.id_usu " +
                     "INNER JOIN DetallesFactura ON Facturas.id_factura = DetallesFactura.nro_factura " +
-                    "INNER JOIN Articulos INNER JOIN Tipos ON Articulos.id_tipo = Tipos.id_tipo ON DetallesFactura.id_articulo = Articulos.id_art " +
-                    "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                    "INNER JOIN Articulos INNER JOIN Tipos ON Articulos.id_tipo = Tipos.id_tipo ON DetallesFactura.id_articulo = Articulos.id_art ";
+                if (cmbPeriodo.SelectedIndex != 0) {
+                    consulta += "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                }
             }
 
             if (usuario != "-1") {
@@ -72,6 +79,40 @@ namespace SistemaHotelPAV.GUI.Estadisticas
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e) {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void cmbPeriodo_SelectedIndexChanged(object sender, EventArgs e) {
+            dtpFechaDesde.Enabled = true;
+            dtpFechaHasta.Enabled = true;
+
+            switch (cmbPeriodo.SelectedIndex) {
+                case 0:
+                    dtpFechaDesde.Enabled = false;
+                    dtpFechaHasta.Enabled = false;
+                    break;
+                case 1:
+                    dtpFechaDesde.Value = new DateTime(DateTime.Today.Year, 1, 1);
+                    dtpFechaHasta.Value = new DateTime(DateTime.Today.Year, 12, 31);
+                    break;
+                case 2:
+                    dtpFechaDesde.Value = new DateTime(DateTime.Today.Year-1, 1, 1);
+                    dtpFechaHasta.Value = new DateTime(DateTime.Today.Year-1, 12, 31);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e) {
+            cmbPeriodo.SelectedIndex = 3;
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e) {
+            cmbPeriodo.SelectedIndex = 3;
         }
     }
 }

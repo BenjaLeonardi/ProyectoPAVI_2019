@@ -41,6 +41,8 @@
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvEstadistica = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbPeriodo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadistica)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +72,7 @@
             this.groupBox1.Controls.Add(this.rdbEstadias);
             this.groupBox1.Location = new System.Drawing.Point(18, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 129);
+            this.groupBox1.Size = new System.Drawing.Size(177, 119);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione Filtro";
@@ -122,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(237, 61);
+            this.label2.Location = new System.Drawing.Point(369, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 3;
@@ -131,15 +133,16 @@
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(240, 77);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(372, 78);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(98, 20);
             this.dtpFechaDesde.TabIndex = 4;
+            this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(349, 61);
+            this.label3.Location = new System.Drawing.Point(481, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 3;
@@ -148,14 +151,15 @@
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(352, 77);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(484, 78);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(98, 20);
             this.dtpFechaHasta.TabIndex = 4;
+            this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(375, 118);
+            this.btnBuscar.Location = new System.Drawing.Point(507, 108);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 6;
@@ -167,17 +171,41 @@
             // 
             this.dgvEstadistica.AllowUserToAddRows = false;
             this.dgvEstadistica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstadistica.Location = new System.Drawing.Point(18, 166);
+            this.dgvEstadistica.Location = new System.Drawing.Point(18, 137);
             this.dgvEstadistica.Name = "dgvEstadistica";
             this.dgvEstadistica.ReadOnly = true;
             this.dgvEstadistica.Size = new System.Drawing.Size(625, 338);
             this.dgvEstadistica.TabIndex = 7;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(237, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Periodo";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // cmbPeriodo
+            // 
+            this.cmbPeriodo.FormattingEnabled = true;
+            this.cmbPeriodo.Items.AddRange(new object[] {
+            "Todos",
+            "Este año",
+            "El año pasado",
+            "Personalizado"});
+            this.cmbPeriodo.Location = new System.Drawing.Point(240, 77);
+            this.cmbPeriodo.Name = "cmbPeriodo";
+            this.cmbPeriodo.Size = new System.Drawing.Size(120, 21);
+            this.cmbPeriodo.TabIndex = 1;
+            this.cmbPeriodo.SelectedIndexChanged += new System.EventHandler(this.cmbPeriodo_SelectedIndexChanged);
+            // 
             // frmEstadisticasXUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 516);
+            this.ClientSize = new System.Drawing.Size(659, 492);
             this.Controls.Add(this.dgvEstadistica);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dtpFechaHasta);
@@ -185,7 +213,9 @@
             this.Controls.Add(this.dtpFechaDesde);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.cmbPeriodo);
             this.Controls.Add(this.cboUsuario);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUsuario);
             this.Name = "frmEstadisticasXUsuario";
             this.Text = "Estadisticas por Usuario";
@@ -213,5 +243,7 @@
         private System.Windows.Forms.DataGridView dgvEstadistica;
         private System.Windows.Forms.RadioButton rdbArticulos;
         private System.Windows.Forms.RadioButton rdbFacturasMonto;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbPeriodo;
     }
 }

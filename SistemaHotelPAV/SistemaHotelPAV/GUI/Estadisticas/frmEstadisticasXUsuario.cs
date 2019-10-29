@@ -41,14 +41,20 @@ namespace SistemaHotelPAV.GUI.Estadisticas
 
             if (rdbEstadias.Checked)
             {
-                consulta = "SELECT Usuarios.usuario, Estadias.nro_estadia, Estadias.fecha_inicio, Estadias.fecha_fun, Estadias.cant_huespedes, Estadias.nro_habitacion " + "FROM Usuarios CROSS JOIN Estadias WHERE (Usuarios.id_usu=" + usuario + ") AND (Estadias.fecha_inicio BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                consulta = "SELECT Usuarios.usuario, Estadias.nro_estadia, Estadias.fecha_inicio, Estadias.fecha_fun, Estadias.cant_huespedes, Estadias.nro_habitacion " + 
+                    "FROM Usuarios JOIN Estadias ON Usuarios.id_usu=Estadias.id_usu " +
+                    "WHERE (Usuarios.id_usu=" + usuario + ") " +
+                    "AND (Estadias.fecha_inicio BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
                 tabla = objDatos.consultar(consulta);
                 this.dgvEstadistica.DataSource = tabla;
                 dgvEstadistica.Refresh();
             }
             else if (rdbFacturas.Checked)
             {
-                consulta = "SELECT Usuarios.usuario, Facturas.id_factura, Facturas.tipo_factura, Facturas.fecha_factura, Facturas.total FROM Usuarios CROSS JOIN Facturas " + "WHERE Usuarios.id_usu=" + usuario + ") AND (Estadias.fecha_inicio BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                consulta = "SELECT Usuarios.usuario, Facturas.id_factura, Facturas.tipo_factura, Facturas.fecha_factura, Facturas.total " +
+                    "FROM Usuarios JOIN Facturas ON Usuarios.id_usu=Facturas.id_usu " + 
+                    "WHERE Usuarios.id_usu=" + usuario + " " +
+                    "AND (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
                 tabla = objDatos.consultar(consulta);
                 this.dgvEstadistica.DataSource = tabla;
                 dgvEstadistica.Refresh();

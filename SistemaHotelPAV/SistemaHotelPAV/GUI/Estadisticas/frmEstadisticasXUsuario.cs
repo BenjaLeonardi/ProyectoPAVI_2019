@@ -61,6 +61,12 @@ namespace SistemaHotelPAV.GUI.Estadisticas
                 if (cmbPeriodo.SelectedIndex != 0) {
                     consulta += "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
                 }
+            }else if (rdbFacturasMonto.Checked) {
+                consulta = "SELECT Usuarios.usuario, SUM(Facturas.total) AS MontoTotal " +
+                "FROM Facturas INNER JOIN Usuarios ON Facturas.id_usu = Usuarios.id_usu ";
+                if (cmbPeriodo.SelectedIndex != 0) {
+                    consulta += "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
+                }
             }
 
             if (usuario != "-1") {
@@ -70,6 +76,8 @@ namespace SistemaHotelPAV.GUI.Estadisticas
             if (rdbArticulos.Checked) {
                 consulta += "GROUP BY Articulos.id_art, Articulos.nombre, Tipos.nombre " +
                     "ORDER BY -SUM(DetallesFactura.cantidad)";
+            }else if (rdbFacturasMonto.Checked) {
+                consulta += "GROUP BY Usuarios.usuario";
             }
 
             tabla = objDatos.consultar(consulta);

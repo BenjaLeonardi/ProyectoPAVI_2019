@@ -61,7 +61,8 @@ namespace SistemaHotelPAV.GUI.Estadisticas
             }
 
             if (rdbArticulos.Checked) {
-                consulta += "GROUP BY Articulos.id_art, Articulos.nombre, Tipos.nombre";
+                consulta += "GROUP BY Articulos.id_art, Articulos.nombre, Tipos.nombre " +
+                    "ORDER BY -SUM(DetallesFactura.cantidad)";
             }
 
             tabla = objDatos.consultar(consulta);

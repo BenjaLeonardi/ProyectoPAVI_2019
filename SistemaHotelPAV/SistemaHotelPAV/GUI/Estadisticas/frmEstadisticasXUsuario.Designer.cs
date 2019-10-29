@@ -31,6 +31,8 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.cboUsuario = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbFacturasMonto = new System.Windows.Forms.RadioButton();
+            this.rdbArticulos = new System.Windows.Forms.RadioButton();
             this.rdbFacturas = new System.Windows.Forms.RadioButton();
             this.rdbEstadias = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvEstadistica = new System.Windows.Forms.DataGridView();
-            this.rdbArticulos = new System.Windows.Forms.RadioButton();
-            this.rdbExtra = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadistica)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +64,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rdbExtra);
+            this.groupBox1.Controls.Add(this.rdbFacturasMonto);
             this.groupBox1.Controls.Add(this.rdbArticulos);
             this.groupBox1.Controls.Add(this.rdbFacturas);
             this.groupBox1.Controls.Add(this.rdbEstadias);
@@ -75,6 +75,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione Filtro";
             // 
+            // rdbFacturasMonto
+            // 
+            this.rdbFacturasMonto.AutoSize = true;
+            this.rdbFacturasMonto.Location = new System.Drawing.Point(13, 91);
+            this.rdbFacturasMonto.Name = "rdbFacturasMonto";
+            this.rdbFacturasMonto.Size = new System.Drawing.Size(119, 17);
+            this.rdbFacturasMonto.TabIndex = 1;
+            this.rdbFacturasMonto.Text = "Montos de Facturas";
+            this.rdbFacturasMonto.UseVisualStyleBackColor = true;
+            this.rdbFacturasMonto.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // rdbArticulos
+            // 
+            this.rdbArticulos.AutoSize = true;
+            this.rdbArticulos.Location = new System.Drawing.Point(13, 68);
+            this.rdbArticulos.Name = "rdbArticulos";
+            this.rdbArticulos.Size = new System.Drawing.Size(133, 17);
+            this.rdbArticulos.TabIndex = 1;
+            this.rdbArticulos.Text = "Articulos mas vendidos";
+            this.rdbArticulos.UseVisualStyleBackColor = true;
+            this.rdbArticulos.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // rdbFacturas
             // 
             this.rdbFacturas.AutoSize = true;
@@ -82,13 +104,13 @@
             this.rdbFacturas.Name = "rdbFacturas";
             this.rdbFacturas.Size = new System.Drawing.Size(85, 17);
             this.rdbFacturas.TabIndex = 1;
-            this.rdbFacturas.TabStop = true;
             this.rdbFacturas.Text = "Por Facturas";
             this.rdbFacturas.UseVisualStyleBackColor = true;
             // 
             // rdbEstadias
             // 
             this.rdbEstadias.AutoSize = true;
+            this.rdbEstadias.Checked = true;
             this.rdbEstadias.Location = new System.Drawing.Point(13, 22);
             this.rdbEstadias.Name = "rdbEstadias";
             this.rdbEstadias.Size = new System.Drawing.Size(84, 17);
@@ -151,30 +173,6 @@
             this.dgvEstadistica.Size = new System.Drawing.Size(625, 338);
             this.dgvEstadistica.TabIndex = 7;
             // 
-            // rdbArticulos
-            // 
-            this.rdbArticulos.AutoSize = true;
-            this.rdbArticulos.Location = new System.Drawing.Point(13, 68);
-            this.rdbArticulos.Name = "rdbArticulos";
-            this.rdbArticulos.Size = new System.Drawing.Size(133, 17);
-            this.rdbArticulos.TabIndex = 1;
-            this.rdbArticulos.TabStop = true;
-            this.rdbArticulos.Text = "Articulos mas vendidos";
-            this.rdbArticulos.UseVisualStyleBackColor = true;
-            this.rdbArticulos.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // rdbExtra
-            // 
-            this.rdbExtra.AutoSize = true;
-            this.rdbExtra.Location = new System.Drawing.Point(13, 91);
-            this.rdbExtra.Name = "rdbExtra";
-            this.rdbExtra.Size = new System.Drawing.Size(72, 17);
-            this.rdbExtra.TabIndex = 1;
-            this.rdbExtra.TabStop = true;
-            this.rdbExtra.Text = "Facturas?";
-            this.rdbExtra.UseVisualStyleBackColor = true;
-            this.rdbExtra.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
             // frmEstadisticasXUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +212,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvEstadistica;
         private System.Windows.Forms.RadioButton rdbArticulos;
-        private System.Windows.Forms.RadioButton rdbExtra;
+        private System.Windows.Forms.RadioButton rdbFacturasMonto;
     }
 }

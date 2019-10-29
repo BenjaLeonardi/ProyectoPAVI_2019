@@ -1,4 +1,5 @@
-﻿using SistemaHotelPAV.DataAccessLayer;
+﻿using SistemaHotelPAV.Clases;
+using SistemaHotelPAV.DataAccessLayer;
 using SistemaHotelPAV.Entities;
 using System;
 using System.Data;
@@ -11,7 +12,6 @@ namespace SistemaHotelPAV.GUI {
         FacturaDA Facturas = new FacturaDA();
         EstadiaDA Estadias = new EstadiaDA();
         ArticuloDA Articulos = new ArticuloDA();
-        Usuarios Usuario = new Usuarios();
 
         DataTable tablaTiposFactura = new DataTable();
 
@@ -219,7 +219,8 @@ namespace SistemaHotelPAV.GUI {
                     pickerFechaFactura.Value.ToString("yyyy'-'MM'-'dd"),
                     txtNroEstadia.Text,
                     pickerFechaInicioEstadia.Value.ToString("yyyy'-'MM'-'dd"),
-                    txtTotal.Text.ToString()
+                    txtTotal.Text.ToString(),
+                    Sesion.UserID.ToString()
                     );
                 for (int i = 0; i < dgvListaArt.Rows.Count; i++)
                 {

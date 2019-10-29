@@ -13,7 +13,7 @@ namespace SistemaHotelPAV.DataAccessLayer {
             return id;
         }
 
-        public void GrabarFactura(string idFactura, string tipoFacturaSeleccionado, string fechaFactura, string nroEstadia, string fechaInicioEstadia, string totalFactura)
+        public void GrabarFactura(string idFactura, string tipoFacturaSeleccionado, string fechaFactura, string nroEstadia, string fechaInicioEstadia, string totalFactura, string idUsuario)
         {
             string consulta = "insert into Facturas values("
                 + idFactura + ","
@@ -21,7 +21,8 @@ namespace SistemaHotelPAV.DataAccessLayer {
                 + fechaFactura + "',"
                 + nroEstadia + ",'"
                 + fechaInicioEstadia + "',"
-                + totalFactura + ")";
+                + totalFactura + ", " 
+                + idUsuario + ")";
 
             Datos.EjecutarSQLConTransaccion(consulta);
         }

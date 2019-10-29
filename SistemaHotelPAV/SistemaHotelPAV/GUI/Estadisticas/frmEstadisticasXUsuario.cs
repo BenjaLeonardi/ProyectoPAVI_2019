@@ -23,7 +23,7 @@ namespace SistemaHotelPAV.GUI.Estadisticas
         private void frmEstadisticasXUsuario_Load(object sender, EventArgs e)
         {
             objDatos.LlenarCombo(cboUsuario, "Usuarios", "usuario", "id_usu", "<<Todos>>");
-            //Podriamos llenar la grid desde aca pero no se si tenemos todos los listados como funcionaria de forma prolija
+            cboUsuario.SelectedIndex = 0;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

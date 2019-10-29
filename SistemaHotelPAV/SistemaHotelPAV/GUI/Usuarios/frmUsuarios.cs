@@ -185,5 +185,10 @@ namespace SistemaHotelPAV.Formularios
         {
 
         }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -51,7 +51,6 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnDetalles = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNroCalle = new System.Windows.Forms.TextBox();
@@ -260,16 +259,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnDetalles
-            // 
-            this.btnDetalles.Enabled = false;
-            this.btnDetalles.Location = new System.Drawing.Point(418, 543);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.Size = new System.Drawing.Size(75, 23);
-            this.btnDetalles.TabIndex = 15;
-            this.btnDetalles.Text = "Detalles";
-            this.btnDetalles.UseVisualStyleBackColor = true;
-            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(499, 543);
@@ -312,7 +301,6 @@
             this.ClientSize = new System.Drawing.Size(591, 578);
             this.Controls.Add(this.txtFechaNac);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnDetalles);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnBorrar);
@@ -372,7 +360,6 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnDetalles;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNroCalle;

@@ -63,11 +63,15 @@ namespace SistemaHotelPAV.DataAccessLayer
             return tabla; // Importante la tabla porque sino no devuelve nada y tira error
         }
 
-        public DataTable consultarTabla(string nombreTabla) //Metodo aparte para devolver una tabla entera
+        public DataTable consultarTabla(string nombreTabla, string campoOrdenamiento=null) //Metodo aparte para devolver una tabla entera
         {
             DataTable tabla = new DataTable();
             this.conectar();
-            comando.CommandText = "SELECT * FROM " + nombreTabla;
+            string sqlSentence = "SELECT * FROM " + nombreTabla + " ";
+            if (campoOrdenamiento != null) {
+                sqlSentence += "ORDER BY " + campoOrdenamiento;
+            }
+            comando.CommandText = sqlSentence;
             tabla.Load(comando.ExecuteReader());
             this.desconectar();
             return tabla;
@@ -75,7 +79,7 @@ namespace SistemaHotelPAV.DataAccessLayer
 
         public void LlenarCombo(ComboBox cbo, string nombreTabla, string display, String value, string defaultOption = null) {
             DataTable tabla = new DataTable();
-            tabla = consultarTabla(nombreTabla);
+            tabla = consultarTabla(nombreTabla, display);
             LlenarCombo(cbo, tabla, display, value, defaultOption);
         }
 

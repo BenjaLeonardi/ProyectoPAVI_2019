@@ -77,7 +77,8 @@ namespace SistemaHotelPAV.GUI.Estadisticas
                 consulta += "GROUP BY Articulos.id_art, Articulos.nombre, Tipos.nombre " +
                     "ORDER BY -SUM(DetallesFactura.cantidad)";
             }else if (rdbFacturasMonto.Checked) {
-                consulta += "GROUP BY Usuarios.usuario";
+                consulta += "GROUP BY Usuarios.usuario " +
+                    "ORDER BY -SUM(Facturas.total)";
             }
 
             tabla = objDatos.consultar(consulta);

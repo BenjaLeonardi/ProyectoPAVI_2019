@@ -41,49 +41,20 @@ namespace SistemaHotelPAV.GUI.Estadisticas
             string desdeStr = transformadorFechaDesde.ToString("yyyy-MM-dd");
             string hastaStr = transformadorFechaHasta.ToString("yyyy-MM-dd");
 
-            if (rdbEstadias.Checked) {
-                consulta = "SELECT Usuarios.usuario, Estadias.nro_estadia, Estadias.fecha_inicio, Estadias.fecha_fun, Estadias.cant_huespedes, Estadias.nro_habitacion " +
-                    "FROM Usuarios JOIN Estadias ON Usuarios.id_usu=Estadias.id_usu ";
-                if (cmbPeriodo.SelectedIndex != 0) {
-                    consulta += "WHERE (Estadias.fecha_inicio BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
-                }
-            } else if (rdbFacturas.Checked) {
-                consulta = "SELECT Usuarios.usuario, Facturas.id_factura, Facturas.tipo_factura, Facturas.fecha_factura, Facturas.total " +
-                    "FROM Usuarios JOIN Facturas ON Usuarios.id_usu=Facturas.id_usu ";
-                if (cmbPeriodo.SelectedIndex != 0) {
-                    consulta += "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
-                }
-            } else if (rdbArticulos.Checked) {
-                consulta = "SELECT Articulos.id_art, Articulos.nombre, Tipos.nombre AS Tipo, SUM(DetallesFactura.cantidad) AS Cantidad " +
-                    "FROM Usuarios INNER JOIN Facturas ON Usuarios.id_usu=Facturas.id_usu " +
-                    "INNER JOIN DetallesFactura ON Facturas.id_factura = DetallesFactura.nro_factura " +
-                    "INNER JOIN Articulos INNER JOIN Tipos ON Articulos.id_tipo = Tipos.id_tipo ON DetallesFactura.id_articulo = Articulos.id_art ";
-                if (cmbPeriodo.SelectedIndex != 0) {
-                    consulta += "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
-                }
-            }else if (rdbFacturasMonto.Checked) {
-                consulta = "SELECT Usuarios.usuario, SUM(Facturas.total) AS MontoTotal " +
-                "FROM Facturas INNER JOIN Usuarios ON Facturas.id_usu = Usuarios.id_usu ";
-                if (cmbPeriodo.SelectedIndex != 0) {
-                    consulta += "WHERE (Facturas.fecha_factura BETWEEN '" + desdeStr + "' AND '" + hastaStr + "')";
-                }
+            if (rdbEstadias.Checked)
+            {
+                frmListadoUno FormListadoUno = new frmListadoUno();
+                FormListadoUno.InitDetalle(desdeStr, hastaStr, Convert.ToInt32(usuario));
+                FormListadoUno.ShowDialog();
             }
-
-            if (usuario != "-1") {
-                consulta += " AND (Usuarios.id_usu=" + usuario + ") ";
+            else if (rdbFacturas.Checked)
+            {
+                frmListadoDos FormListadoDos = new frmListadoDos();
+                FormListadoDos.InitDetalle(desdeStr, hastaStr, Convert.ToInt32(usuario));
+                FormListadoDos.ShowDialog();
             }
+           
 
-            if (rdbArticulos.Checked) {
-                consulta += "GROUP BY Articulos.id_art, Articulos.nombre, Tipos.nombre " +
-                    "ORDER BY -SUM(DetallesFactura.cantidad)";
-            }else if (rdbFacturasMonto.Checked) {
-                consulta += "GROUP BY Usuarios.usuario " +
-                    "ORDER BY -SUM(Facturas.total)";
-            }
-
-            tabla = objDatos.consultar(consulta);
-            this.dgvEstadistica.DataSource = tabla;
-            dgvEstadistica.Refresh();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e) {

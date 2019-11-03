@@ -49,7 +49,7 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,6 +84,16 @@
     <Compile Include="dsFacturasDetallesFacturaArticulos.cs">
       <DependentUpon>dsFacturasDetallesFacturaArticulos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsListadoDos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsListadoDos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsListadoUno.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsListadoUno.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsReporteClienteEstadia.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +120,18 @@
     </Compile>
     <Compile Include="GUI\Estadisticas\frmEstadisticasXUsuario.Designer.cs">
       <DependentUpon>frmEstadisticasXUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Estadisticas\frmListadoDos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Estadisticas\frmListadoDos.Designer.cs">
+      <DependentUpon>frmListadoDos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Estadisticas\frmListadoUno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Estadisticas\frmListadoUno.Designer.cs">
+      <DependentUpon>frmListadoUno.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmFactura.cs">
       <SubType>Form</SubType>
@@ -177,6 +199,14 @@
     <EmbeddedResource Include="GUI\Estadisticas\frmEstadisticasXUsuario.resx">
       <DependentUpon>frmEstadisticasXUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Estadisticas\frmListadoDos.resx">
+      <DependentUpon>frmListadoDos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Estadisticas\frmListadoUno.resx">
+      <DependentUpon>frmListadoUno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Estadisticas\rptListadoDos.rdlc" />
+    <EmbeddedResource Include="GUI\Estadisticas\rptListadoUno.rdlc" />
     <EmbeddedResource Include="GUI\frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +254,28 @@
     </None>
     <None Include="dsClienteVehiculo.xss">
       <DependentUpon>dsClienteVehiculo.xsd</DependentUpon>
+    </None>
+    <None Include="dsListadoDos.xsc">
+      <DependentUpon>dsListadoDos.xsd</DependentUpon>
+    </None>
+    <None Include="dsListadoDos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsListadoDos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsListadoDos.xss">
+      <DependentUpon>dsListadoDos.xsd</DependentUpon>
+    </None>
+    <None Include="dsListadoUno.xsc">
+      <DependentUpon>dsListadoUno.xsd</DependentUpon>
+    </None>
+    <None Include="dsListadoUno.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsListadoUno.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsListadoUno.xss">
+      <DependentUpon>dsListadoUno.xsd</DependentUpon>
     </None>
     <None Include="dsReporteClienteEstadia.xsc">
       <DependentUpon>dsReporteClienteEstadia.xsd</DependentUpon>

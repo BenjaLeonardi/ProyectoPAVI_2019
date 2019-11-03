@@ -40,11 +40,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.dgvEstadistica = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbPeriodo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstadistica)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -167,16 +165,6 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // dgvEstadistica
-            // 
-            this.dgvEstadistica.AllowUserToAddRows = false;
-            this.dgvEstadistica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstadistica.Location = new System.Drawing.Point(18, 137);
-            this.dgvEstadistica.Name = "dgvEstadistica";
-            this.dgvEstadistica.ReadOnly = true;
-            this.dgvEstadistica.Size = new System.Drawing.Size(625, 338);
-            this.dgvEstadistica.TabIndex = 7;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -205,8 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 492);
-            this.Controls.Add(this.dgvEstadistica);
+            this.ClientSize = new System.Drawing.Size(595, 147);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dtpFechaHasta);
             this.Controls.Add(this.label3);
@@ -222,7 +209,6 @@
             this.Load += new System.EventHandler(this.frmEstadisticasXUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEstadistica)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,7 +226,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView dgvEstadistica;
         private System.Windows.Forms.RadioButton rdbArticulos;
         private System.Windows.Forms.RadioButton rdbFacturasMonto;
         private System.Windows.Forms.Label label1;

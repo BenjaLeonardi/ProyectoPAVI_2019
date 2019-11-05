@@ -84,6 +84,14 @@
     <Compile Include="dsFacturasDetallesFacturaArticulos.cs">
       <DependentUpon>dsFacturasDetallesFacturaArticulos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsListadoArticulosVendidos.cs">
+      <DependentUpon>dsListadoArticulosVendidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsListadoArticulosVendidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsListadoArticulosVendidos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsListadoDos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +128,12 @@
     </Compile>
     <Compile Include="GUI\Estadisticas\frmEstadisticasXUsuario.Designer.cs">
       <DependentUpon>frmEstadisticasXUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Estadisticas\frmListadoArticulosMasVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Estadisticas\frmListadoArticulosMasVendidos.Designer.cs">
+      <DependentUpon>frmListadoArticulosMasVendidos.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Estadisticas\frmListadoDos.cs">
       <SubType>Form</SubType>
@@ -199,12 +213,16 @@
     <EmbeddedResource Include="GUI\Estadisticas\frmEstadisticasXUsuario.resx">
       <DependentUpon>frmEstadisticasXUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Estadisticas\frmListadoArticulosMasVendidos.resx">
+      <DependentUpon>frmListadoArticulosMasVendidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Estadisticas\frmListadoDos.resx">
       <DependentUpon>frmListadoDos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Estadisticas\frmListadoUno.resx">
       <DependentUpon>frmListadoUno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Estadisticas\rptArticulosMasVendidos.rdlc" />
     <EmbeddedResource Include="GUI\Estadisticas\rptListadoDos.rdlc" />
     <EmbeddedResource Include="GUI\Estadisticas\rptListadoUno.rdlc" />
     <EmbeddedResource Include="GUI\frmFactura.resx">
@@ -254,6 +272,17 @@
     </None>
     <None Include="dsClienteVehiculo.xss">
       <DependentUpon>dsClienteVehiculo.xsd</DependentUpon>
+    </None>
+    <None Include="dsListadoArticulosVendidos.xsc">
+      <DependentUpon>dsListadoArticulosVendidos.xsd</DependentUpon>
+    </None>
+    <None Include="dsListadoArticulosVendidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsListadoArticulosVendidos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsListadoArticulosVendidos.xss">
+      <DependentUpon>dsListadoArticulosVendidos.xsd</DependentUpon>
     </None>
     <None Include="dsListadoDos.xsc">
       <DependentUpon>dsListadoDos.xsd</DependentUpon>

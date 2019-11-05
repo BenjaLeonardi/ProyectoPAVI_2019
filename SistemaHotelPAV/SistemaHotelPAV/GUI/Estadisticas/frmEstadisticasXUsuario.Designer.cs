@@ -61,6 +61,7 @@
             this.cboUsuario.Name = "cboUsuario";
             this.cboUsuario.Size = new System.Drawing.Size(210, 21);
             this.cboUsuario.TabIndex = 1;
+            this.cboUsuario.SelectedIndexChanged += new System.EventHandler(this.cboUsuario_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -95,7 +96,7 @@
             this.rdbArticulos.TabIndex = 1;
             this.rdbArticulos.Text = "Articulos mas vendidos";
             this.rdbArticulos.UseVisualStyleBackColor = true;
-            this.rdbArticulos.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rdbArticulos.CheckedChanged += new System.EventHandler(this.rdbArticulos_CheckedChanged);
             // 
             // rdbFacturas
             // 
@@ -106,6 +107,7 @@
             this.rdbFacturas.TabIndex = 1;
             this.rdbFacturas.Text = "Por Facturas";
             this.rdbFacturas.UseVisualStyleBackColor = true;
+            this.rdbFacturas.CheckedChanged += new System.EventHandler(this.rdbFacturas_CheckedChanged);
             // 
             // rdbEstadias
             // 
@@ -118,6 +120,7 @@
             this.rdbEstadias.TabStop = true;
             this.rdbEstadias.Text = "Por Estadias";
             this.rdbEstadias.UseVisualStyleBackColor = true;
+            this.rdbEstadias.CheckedChanged += new System.EventHandler(this.rdbEstadias_CheckedChanged);
             // 
             // label2
             // 

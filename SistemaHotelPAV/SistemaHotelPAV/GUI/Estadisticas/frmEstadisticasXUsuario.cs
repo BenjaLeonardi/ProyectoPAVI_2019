@@ -22,7 +22,7 @@ namespace SistemaHotelPAV.GUI.Estadisticas
 
         private void frmEstadisticasXUsuario_Load(object sender, EventArgs e)
         {
-            objDatos.LlenarCombo(cboUsuario, "Usuarios", "usuario", "id_usu", "<<Todos>>");
+            objDatos.LlenarCombo(cboUsuario, "Usuarios", "usuario", "id_usu");
             cboUsuario.SelectedIndex = 0;
             cmbPeriodo.SelectedIndex = 0;
         }
@@ -41,6 +41,11 @@ namespace SistemaHotelPAV.GUI.Estadisticas
             string desdeStr = transformadorFechaDesde.ToString("yyyy-MM-dd");
             string hastaStr = transformadorFechaHasta.ToString("yyyy-MM-dd");
 
+            if (cmbPeriodo.SelectedIndex == 0) {
+                desdeStr = DateTime.MinValue.ToString("yyyy-MM-dd");
+                hastaStr = DateTime.Now.ToString("yyyy-MM-dd");
+            }
+
             if (rdbEstadias.Checked)
             {
                 frmListadoUno FormListadoUno = new frmListadoUno();
@@ -52,12 +57,19 @@ namespace SistemaHotelPAV.GUI.Estadisticas
                 frmListadoDos FormListadoDos = new frmListadoDos();
                 FormListadoDos.InitDetalle(desdeStr, hastaStr, Convert.ToInt32(usuario));
                 FormListadoDos.ShowDialog();
+            }else if (rdbArticulos.Checked) {
+                frmListadoArticulosMasVendidos listadoArticulosVendidos = new frmListadoArticulosMasVendidos();
+                listadoArticulosVendidos.InitializeReport(desdeStr, hastaStr);
+                listadoArticulosVendidos.ShowDialog();
+            }else if (rdbFacturasMonto.Checked) {
+
             }
            
 
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e) {
+            SelectedReport();
 
         }
 
@@ -93,6 +105,29 @@ namespace SistemaHotelPAV.GUI.Estadisticas
 
         private void dtpFechaHasta_ValueChanged(object sender, EventArgs e) {
             cmbPeriodo.SelectedIndex = 3;
+        }
+
+        private void rdbArticulos_CheckedChanged(object sender, EventArgs e) {
+            SelectedReport();
+        }
+
+        void SelectedReport() {
+            bool usuarios = !rdbArticulos.Checked;
+            cboUsuario.Enabled = usuarios;
+        }
+
+        private void cboUsuario_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void rdbEstadias_CheckedChanged(object sender, EventArgs e) {
+            SelectedReport();
+
+        }
+
+        private void rdbFacturas_CheckedChanged(object sender, EventArgs e) {
+            SelectedReport();
+
         }
     }
 }

@@ -102,6 +102,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsListadoUno.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsMontosFacturas.cs">
+      <DependentUpon>dsMontosFacturas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsMontosFacturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMontosFacturas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsReporteClienteEstadia.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,6 +160,12 @@
     </Compile>
     <Compile Include="GUI\frmFactura.Designer.cs">
       <DependentUpon>frmFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Estadisticas\frmListadoFacturasMonto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Estadisticas\frmListadoFacturasMonto.Designer.cs">
+      <DependentUpon>frmListadoFacturasMonto.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Reportes\frmReporteArticuloFactura.cs">
       <SubType>Form</SubType>
@@ -219,6 +233,9 @@
     <EmbeddedResource Include="GUI\Estadisticas\frmListadoDos.resx">
       <DependentUpon>frmListadoDos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Estadisticas\frmListadoFacturasMonto.resx">
+      <DependentUpon>frmListadoFacturasMonto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Estadisticas\frmListadoUno.resx">
       <DependentUpon>frmListadoUno.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +260,7 @@
     <EmbeddedResource Include="GUI\Reportes\rptClienteVehiculo.rdlc" />
     <EmbeddedResource Include="GUI\Reportes\rptFacturaArticulo.rdlc" />
     <EmbeddedResource Include="GUI\Reportes\rptClienteEstadia.rdlc" />
+    <EmbeddedResource Include="GUI\Reportes\rptFacturasMonto.rdlc" />
     <EmbeddedResource Include="GUI\Reportes\rptUsuarioBarrio.rdlc" />
     <EmbeddedResource Include="GUI\Usuarios\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -305,6 +323,17 @@
     </None>
     <None Include="dsListadoUno.xss">
       <DependentUpon>dsListadoUno.xsd</DependentUpon>
+    </None>
+    <None Include="dsMontosFacturas.xsc">
+      <DependentUpon>dsMontosFacturas.xsd</DependentUpon>
+    </None>
+    <None Include="dsMontosFacturas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMontosFacturas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsMontosFacturas.xss">
+      <DependentUpon>dsMontosFacturas.xsd</DependentUpon>
     </None>
     <None Include="dsReporteClienteEstadia.xsc">
       <DependentUpon>dsReporteClienteEstadia.xsd</DependentUpon>

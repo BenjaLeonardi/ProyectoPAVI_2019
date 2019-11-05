@@ -62,7 +62,9 @@ namespace SistemaHotelPAV.GUI.Estadisticas
                 listadoArticulosVendidos.InitializeReport(desdeStr, hastaStr);
                 listadoArticulosVendidos.ShowDialog();
             }else if (rdbFacturasMonto.Checked) {
-
+                frmListadoFacturasMonto listadoFacturasMonto = new frmListadoFacturasMonto();
+                listadoFacturasMonto.InitializeReport(desdeStr, hastaStr);
+                listadoFacturasMonto.ShowDialog();
             }
            
 
@@ -112,7 +114,7 @@ namespace SistemaHotelPAV.GUI.Estadisticas
         }
 
         void SelectedReport() {
-            bool usuarios = !rdbArticulos.Checked;
+            bool usuarios = !(rdbArticulos.Checked || rdbFacturasMonto.Checked);
             cboUsuario.Enabled = usuarios;
         }
 

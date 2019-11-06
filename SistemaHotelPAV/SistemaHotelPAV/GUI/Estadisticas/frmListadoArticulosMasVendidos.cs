@@ -23,7 +23,7 @@ namespace SistemaHotelPAV.GUI.Estadisticas {
         }
 
         private void frmListadoArticulosMasVendidos_Load(object sender, EventArgs e) {
-            this.dtaArticulosVendidos.Fill(this.dsListadoArticulosVendidos.dtArticulosVendidos, fechaDesde, fechaHasta);
+            this.dtaFacultadVendidos.Fill(this.dsArticulosVendidosFacultad.dtFacultadVendidos, fechaDesde, fechaHasta);
             this.reportViewer1.RefreshReport();
         }
     }

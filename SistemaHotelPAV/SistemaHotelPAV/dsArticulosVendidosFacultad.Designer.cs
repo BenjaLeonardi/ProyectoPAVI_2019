@@ -20,17 +20,17 @@ namespace SistemaHotelPAV {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsListadoArticulosVendidos")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsArticulosVendidosFacultad")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsListadoArticulosVendidos : global::System.Data.DataSet {
+    public partial class dsArticulosVendidosFacultad : global::System.Data.DataSet {
         
-        private dtArticulosVendidosDataTable tabledtArticulosVendidos;
+        private dtFacultadVendidosDataTable tabledtFacultadVendidos;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public dsListadoArticulosVendidos() {
+        public dsArticulosVendidosFacultad() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SistemaHotelPAV {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected dsListadoArticulosVendidos(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsArticulosVendidosFacultad(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SistemaHotelPAV {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["dtArticulosVendidos"] != null)) {
-                    base.Tables.Add(new dtArticulosVendidosDataTable(ds.Tables["dtArticulosVendidos"]));
+                if ((ds.Tables["dtFacultadVendidos"] != null)) {
+                    base.Tables.Add(new dtFacultadVendidosDataTable(ds.Tables["dtFacultadVendidos"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SistemaHotelPAV {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public dtArticulosVendidosDataTable dtArticulosVendidos {
+        public dtFacultadVendidosDataTable dtFacultadVendidos {
             get {
-                return this.tabledtArticulosVendidos;
+                return this.tabledtFacultadVendidos;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SistemaHotelPAV {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsListadoArticulosVendidos cln = ((dsListadoArticulosVendidos)(base.Clone()));
+            dsArticulosVendidosFacultad cln = ((dsArticulosVendidosFacultad)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SistemaHotelPAV {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["dtArticulosVendidos"] != null)) {
-                    base.Tables.Add(new dtArticulosVendidosDataTable(ds.Tables["dtArticulosVendidos"]));
+                if ((ds.Tables["dtFacultadVendidos"] != null)) {
+                    base.Tables.Add(new dtFacultadVendidosDataTable(ds.Tables["dtFacultadVendidos"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SistemaHotelPAV {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabledtArticulosVendidos = ((dtArticulosVendidosDataTable)(base.Tables["dtArticulosVendidos"]));
+            this.tabledtFacultadVendidos = ((dtFacultadVendidosDataTable)(base.Tables["dtFacultadVendidos"]));
             if ((initTable == true)) {
-                if ((this.tabledtArticulosVendidos != null)) {
-                    this.tabledtArticulosVendidos.InitVars();
+                if ((this.tabledtFacultadVendidos != null)) {
+                    this.tabledtFacultadVendidos.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SistemaHotelPAV {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsListadoArticulosVendidos";
+            this.DataSetName = "dsArticulosVendidosFacultad";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsListadoArticulosVendidos.xsd";
+            this.Namespace = "http://tempuri.org/dsArticulosVendidosFacultad.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabledtArticulosVendidos = new dtArticulosVendidosDataTable();
-            base.Tables.Add(this.tabledtArticulosVendidos);
+            this.tabledtFacultadVendidos = new dtFacultadVendidosDataTable();
+            base.Tables.Add(this.tabledtFacultadVendidos);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializedtArticulosVendidos() {
+        private bool ShouldSerializedtFacultadVendidos() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SistemaHotelPAV {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsListadoArticulosVendidos ds = new dsListadoArticulosVendidos();
+            dsArticulosVendidosFacultad ds = new dsArticulosVendidosFacultad();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace SistemaHotelPAV {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void dtArticulosVendidosRowChangeEventHandler(object sender, dtArticulosVendidosRowChangeEvent e);
+        public delegate void dtFacultadVendidosRowChangeEventHandler(object sender, dtFacultadVendidosRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class dtArticulosVendidosDataTable : global::System.Data.TypedTableBase<dtArticulosVendidosRow> {
+        public partial class dtFacultadVendidosDataTable : global::System.Data.TypedTableBase<dtFacultadVendidosRow> {
             
             private global::System.Data.DataColumn columnid_art;
             
@@ -289,8 +289,8 @@ namespace SistemaHotelPAV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtArticulosVendidosDataTable() {
-                this.TableName = "dtArticulosVendidos";
+            public dtFacultadVendidosDataTable() {
+                this.TableName = "dtFacultadVendidos";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +298,7 @@ namespace SistemaHotelPAV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal dtArticulosVendidosDataTable(global::System.Data.DataTable table) {
+            internal dtFacultadVendidosDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +315,7 @@ namespace SistemaHotelPAV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected dtArticulosVendidosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected dtFacultadVendidosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -363,55 +363,55 @@ namespace SistemaHotelPAV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtArticulosVendidosRow this[int index] {
+            public dtFacultadVendidosRow this[int index] {
                 get {
-                    return ((dtArticulosVendidosRow)(this.Rows[index]));
+                    return ((dtFacultadVendidosRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event dtArticulosVendidosRowChangeEventHandler dtArticulosVendidosRowChanging;
+            public event dtFacultadVendidosRowChangeEventHandler dtFacultadVendidosRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event dtArticulosVendidosRowChangeEventHandler dtArticulosVendidosRowChanged;
+            public event dtFacultadVendidosRowChangeEventHandler dtFacultadVendidosRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event dtArticulosVendidosRowChangeEventHandler dtArticulosVendidosRowDeleting;
+            public event dtFacultadVendidosRowChangeEventHandler dtFacultadVendidosRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event dtArticulosVendidosRowChangeEventHandler dtArticulosVendidosRowDeleted;
+            public event dtFacultadVendidosRowChangeEventHandler dtFacultadVendidosRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AdddtArticulosVendidosRow(dtArticulosVendidosRow row) {
+            public void AdddtFacultadVendidosRow(dtFacultadVendidosRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtArticulosVendidosRow AdddtArticulosVendidosRow(int id_art, string nombre, string Tipo, int Cantidad) {
-                dtArticulosVendidosRow rowdtArticulosVendidosRow = ((dtArticulosVendidosRow)(this.NewRow()));
+            public dtFacultadVendidosRow AdddtFacultadVendidosRow(int id_art, string nombre, string Tipo, int Cantidad) {
+                dtFacultadVendidosRow rowdtFacultadVendidosRow = ((dtFacultadVendidosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_art,
                         nombre,
                         Tipo,
                         Cantidad};
-                rowdtArticulosVendidosRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowdtArticulosVendidosRow);
-                return rowdtArticulosVendidosRow;
+                rowdtFacultadVendidosRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdtFacultadVendidosRow);
+                return rowdtFacultadVendidosRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtArticulosVendidosRow FindByid_art(int id_art) {
-                return ((dtArticulosVendidosRow)(this.Rows.Find(new object[] {
+            public dtFacultadVendidosRow FindByid_art(int id_art) {
+                return ((dtFacultadVendidosRow)(this.Rows.Find(new object[] {
                             id_art})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                dtArticulosVendidosDataTable cln = ((dtArticulosVendidosDataTable)(base.Clone()));
+                dtFacultadVendidosDataTable cln = ((dtFacultadVendidosDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -419,7 +419,7 @@ namespace SistemaHotelPAV {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new dtArticulosVendidosDataTable();
+                return new dtFacultadVendidosDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -455,28 +455,28 @@ namespace SistemaHotelPAV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtArticulosVendidosRow NewdtArticulosVendidosRow() {
-                return ((dtArticulosVendidosRow)(this.NewRow()));
+            public dtFacultadVendidosRow NewdtFacultadVendidosRow() {
+                return ((dtFacultadVendidosRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new dtArticulosVendidosRow(builder);
+                return new dtFacultadVendidosRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(dtArticulosVendidosRow);
+                return typeof(dtFacultadVendidosRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.dtArticulosVendidosRowChanged != null)) {
-                    this.dtArticulosVendidosRowChanged(this, new dtArticulosVendidosRowChangeEvent(((dtArticulosVendidosRow)(e.Row)), e.Action));
+                if ((this.dtFacultadVendidosRowChanged != null)) {
+                    this.dtFacultadVendidosRowChanged(this, new dtFacultadVendidosRowChangeEvent(((dtFacultadVendidosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -484,8 +484,8 @@ namespace SistemaHotelPAV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.dtArticulosVendidosRowChanging != null)) {
-                    this.dtArticulosVendidosRowChanging(this, new dtArticulosVendidosRowChangeEvent(((dtArticulosVendidosRow)(e.Row)), e.Action));
+                if ((this.dtFacultadVendidosRowChanging != null)) {
+                    this.dtFacultadVendidosRowChanging(this, new dtFacultadVendidosRowChangeEvent(((dtFacultadVendidosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -493,8 +493,8 @@ namespace SistemaHotelPAV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.dtArticulosVendidosRowDeleted != null)) {
-                    this.dtArticulosVendidosRowDeleted(this, new dtArticulosVendidosRowChangeEvent(((dtArticulosVendidosRow)(e.Row)), e.Action));
+                if ((this.dtFacultadVendidosRowDeleted != null)) {
+                    this.dtFacultadVendidosRowDeleted(this, new dtFacultadVendidosRowChangeEvent(((dtFacultadVendidosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -502,14 +502,14 @@ namespace SistemaHotelPAV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.dtArticulosVendidosRowDeleting != null)) {
-                    this.dtArticulosVendidosRowDeleting(this, new dtArticulosVendidosRowChangeEvent(((dtArticulosVendidosRow)(e.Row)), e.Action));
+                if ((this.dtFacultadVendidosRowDeleting != null)) {
+                    this.dtFacultadVendidosRowDeleting(this, new dtFacultadVendidosRowChangeEvent(((dtFacultadVendidosRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovedtArticulosVendidosRow(dtArticulosVendidosRow row) {
+            public void RemovedtFacultadVendidosRow(dtFacultadVendidosRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -518,7 +518,7 @@ namespace SistemaHotelPAV {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsListadoArticulosVendidos ds = new dsListadoArticulosVendidos();
+                dsArticulosVendidosFacultad ds = new dsArticulosVendidosFacultad();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -536,7 +536,7 @@ namespace SistemaHotelPAV {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "dtArticulosVendidosDataTable";
+                attribute2.FixedValue = "dtFacultadVendidosDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -580,25 +580,25 @@ namespace SistemaHotelPAV {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class dtArticulosVendidosRow : global::System.Data.DataRow {
+        public partial class dtFacultadVendidosRow : global::System.Data.DataRow {
             
-            private dtArticulosVendidosDataTable tabledtArticulosVendidos;
+            private dtFacultadVendidosDataTable tabledtFacultadVendidos;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal dtArticulosVendidosRow(global::System.Data.DataRowBuilder rb) : 
+            internal dtFacultadVendidosRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabledtArticulosVendidos = ((dtArticulosVendidosDataTable)(this.Table));
+                this.tabledtFacultadVendidos = ((dtFacultadVendidosDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int id_art {
                 get {
-                    return ((int)(this[this.tabledtArticulosVendidos.id_artColumn]));
+                    return ((int)(this[this.tabledtFacultadVendidos.id_artColumn]));
                 }
                 set {
-                    this[this.tabledtArticulosVendidos.id_artColumn] = value;
+                    this[this.tabledtFacultadVendidos.id_artColumn] = value;
                 }
             }
             
@@ -606,10 +606,10 @@ namespace SistemaHotelPAV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string nombre {
                 get {
-                    return ((string)(this[this.tabledtArticulosVendidos.nombreColumn]));
+                    return ((string)(this[this.tabledtFacultadVendidos.nombreColumn]));
                 }
                 set {
-                    this[this.tabledtArticulosVendidos.nombreColumn] = value;
+                    this[this.tabledtFacultadVendidos.nombreColumn] = value;
                 }
             }
             
@@ -617,10 +617,10 @@ namespace SistemaHotelPAV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Tipo {
                 get {
-                    return ((string)(this[this.tabledtArticulosVendidos.TipoColumn]));
+                    return ((string)(this[this.tabledtFacultadVendidos.TipoColumn]));
                 }
                 set {
-                    this[this.tabledtArticulosVendidos.TipoColumn] = value;
+                    this[this.tabledtFacultadVendidos.TipoColumn] = value;
                 }
             }
             
@@ -629,27 +629,27 @@ namespace SistemaHotelPAV {
             public int Cantidad {
                 get {
                     try {
-                        return ((int)(this[this.tabledtArticulosVendidos.CantidadColumn]));
+                        return ((int)(this[this.tabledtFacultadVendidos.CantidadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cantidad\' de la tabla \'dtArticulosVendidos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cantidad\' de la tabla \'dtFacultadVendidos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledtArticulosVendidos.CantidadColumn] = value;
+                    this[this.tabledtFacultadVendidos.CantidadColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCantidadNull() {
-                return this.IsNull(this.tabledtArticulosVendidos.CantidadColumn);
+                return this.IsNull(this.tabledtFacultadVendidos.CantidadColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCantidadNull() {
-                this[this.tabledtArticulosVendidos.CantidadColumn] = global::System.Convert.DBNull;
+                this[this.tabledtFacultadVendidos.CantidadColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -657,22 +657,22 @@ namespace SistemaHotelPAV {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class dtArticulosVendidosRowChangeEvent : global::System.EventArgs {
+        public class dtFacultadVendidosRowChangeEvent : global::System.EventArgs {
             
-            private dtArticulosVendidosRow eventRow;
+            private dtFacultadVendidosRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtArticulosVendidosRowChangeEvent(dtArticulosVendidosRow row, global::System.Data.DataRowAction action) {
+            public dtFacultadVendidosRowChangeEvent(dtFacultadVendidosRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtArticulosVendidosRow Row {
+            public dtFacultadVendidosRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -688,7 +688,7 @@ namespace SistemaHotelPAV {
         }
     }
 }
-namespace SistemaHotelPAV.dsListadoArticulosVendidosTableAdapters {
+namespace SistemaHotelPAV.dsArticulosVendidosFacultadTableAdapters {
     
     
     /// <summary>
@@ -700,7 +700,7 @@ namespace SistemaHotelPAV.dsListadoArticulosVendidosTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class dtaArticulosVendidos : global::System.ComponentModel.Component {
+    public partial class dtaFacultadVendidos : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -714,7 +714,7 @@ namespace SistemaHotelPAV.dsListadoArticulosVendidosTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public dtaArticulosVendidos() {
+        public dtaFacultadVendidos() {
             this.ClearBeforeFill = true;
         }
         
@@ -811,7 +811,7 @@ namespace SistemaHotelPAV.dsListadoArticulosVendidosTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "dtArticulosVendidos";
+            tableMapping.DataSetTable = "dtFacultadVendidos";
             tableMapping.ColumnMappings.Add("id_art", "id_art");
             tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("Tipo", "Tipo");
@@ -823,7 +823,7 @@ namespace SistemaHotelPAV.dsListadoArticulosVendidosTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SistemaHotelPAV.Properties.Settings.Default.HotelGrandarioDESKTOPJOO5N;
+            this._connection.ConnectionString = global::SistemaHotelPAV.Properties.Settings.Default.TestLeonardiConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -850,7 +850,7 @@ ORDER BY - SUM(DetallesFactura.cantidad)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsListadoArticulosVendidos.dtArticulosVendidosDataTable dataTable, string Desde, string Hasta) {
+        public virtual int Fill(dsArticulosVendidosFacultad.dtFacultadVendidosDataTable dataTable, string Desde, string Hasta) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Desde == null)) {
                 throw new global::System.ArgumentNullException("Desde");
@@ -875,7 +875,7 @@ ORDER BY - SUM(DetallesFactura.cantidad)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsListadoArticulosVendidos.dtArticulosVendidosDataTable GetData(string Desde, string Hasta) {
+        public virtual dsArticulosVendidosFacultad.dtFacultadVendidosDataTable GetData(string Desde, string Hasta) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Desde == null)) {
                 throw new global::System.ArgumentNullException("Desde");
@@ -889,7 +889,7 @@ ORDER BY - SUM(DetallesFactura.cantidad)";
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Hasta));
             }
-            dsListadoArticulosVendidos.dtArticulosVendidosDataTable dataTable = new dsListadoArticulosVendidos.dtArticulosVendidosDataTable();
+            dsArticulosVendidosFacultad.dtFacultadVendidosDataTable dataTable = new dsArticulosVendidosFacultad.dtFacultadVendidosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -963,7 +963,7 @@ ORDER BY - SUM(DetallesFactura.cantidad)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(dsListadoArticulosVendidos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(dsArticulosVendidosFacultad dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -973,7 +973,7 @@ ORDER BY - SUM(DetallesFactura.cantidad)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(dsListadoArticulosVendidos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(dsArticulosVendidosFacultad dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -983,7 +983,7 @@ ORDER BY - SUM(DetallesFactura.cantidad)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(dsListadoArticulosVendidos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(dsArticulosVendidosFacultad dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1017,7 +1017,7 @@ ORDER BY - SUM(DetallesFactura.cantidad)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(dsListadoArticulosVendidos dataSet) {
+        public virtual int UpdateAll(dsArticulosVendidosFacultad dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
